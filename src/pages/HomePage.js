@@ -1,10 +1,12 @@
 import React from 'react'
-import Nav from "../components/Nav"
+import HotnCold from '../components/HotnCold'
+
 
 export default function HomePage() {
   return (
     <div>
-       <Nav/> 
+
+       <HotnCold/>
       
     </div>
   )

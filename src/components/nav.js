@@ -6,17 +6,17 @@ export default function Nav() {
     <div className="all-nav">
    
    
-        <div className="navlink-container">
+     {/*    <div className="navlink-container">
           <Link className="navlink list" to="/list">List</Link>
-        </div>
+        </div> */}
 
-        <div className="navlink-container">
+    {/*     <div className="navlink-container">
           <Link className="navlink allergies" to="/allergies">Allergies</Link>
         </div>
 
         <div className="navlink-container">
           <Link className="navlink closing" to="/closing">Closing</Link>
-        </div>
+        </div> */}
 
         <div className='navlink-container'>
           <Link className="navlink home" end to="/">Home</Link>
