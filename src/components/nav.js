@@ -1,28 +1,28 @@
 import React from 'react';
-import NavLink from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-export default function nav() {
+export default function Nav() {
   return (
     <div className="all-nav">
-      <nav>
+   
+   
         <div className="navlink-container">
-          <NavLink className="navlink list" end to="/list"></NavLink>
+          <Link className="navlink list" to="/list">List</Link>
         </div>
 
         <div className="navlink-container">
-          <NavLink className="navlink allergies" to="/allergies"></NavLink>
+          <Link className="navlink allergies" to="/allergies">Allergies</Link>
         </div>
 
         <div className="navlink-container">
-          <NavLink className="navlink closing" to="/closing"></NavLink>
+          <Link className="navlink closing" to="/closing">Closing</Link>
         </div>
 
-        <div className="navlink-container">
-          <NavLink className="navlink finances" to="/dorm8ts.build/finances"></NavLink>
+        <div className='navlink-container'>
+          <Link className="navlink home" end to="/">Home</Link>
         </div>
 
-        {/*Profile is not a navlink here, it is a component because it doesnt display on all pages */}
-      </nav>
+    
     </div>
   )
 }
