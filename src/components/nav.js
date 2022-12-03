@@ -19,7 +19,7 @@ export default function Nav() {
         </div> */}
 
         <div className='navlink-container'>
-          <Link className="navlink home" end to="/">Home</Link>
+          <Link className="navlink home" to="/">Home</Link>
         </div>
 
     
