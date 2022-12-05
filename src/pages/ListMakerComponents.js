@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { endpoint, getFromEndpoint } from "../utils/database_functions.js";
 import ComponentCard from "../components/ComponentCard";
 import { Link } from 'react-router-dom';
+import ListDialog from '../components/ListDialog';
+import BigPlus from '../pictures/BigPlus.svg'
 
 
 export default function ListMakerComponents() {
@@ -63,6 +65,7 @@ export default function ListMakerComponents() {
       <div className='header'>
         <Link to="/list"><img src={Back} alt="back-button" to="/list" /></Link>
         <h1>Dishes</h1>
+        <ListDialog/>
       </div>
 
       {/*Showing the dishes from the database*/}
@@ -115,7 +118,7 @@ export default function ListMakerComponents() {
           );
         })}
       </div>
-
+      <Link to="/ingredients"><img src={BigPlus} alt="BigPlus"/></Link>
     </div>
 
 
