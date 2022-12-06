@@ -1,15 +1,16 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
 import { Link } from 'react-router-dom';
-
-
+import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db, auth } from "../firebaseConfig"
 
 export default function Overview() {
   return (
     <div>
       <div className='header'>
-        <img src={Back} alt="back-button" to="/ingredients" />
-        <h1>Overview</h1>
+      <Link className='backbutton' to="/ingredients"><div><img src={Back} alt="back-button"/></div></Link>
+        <h1  className='headertitle'>Overview</h1>
       </div>
 
       <div>

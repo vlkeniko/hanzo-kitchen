@@ -6,8 +6,8 @@ export default function Construction() {
   return (
     <div>
        <div className='header'>
-        <img src={Back} alt="back-button"/>
-        <h1>Oh no!</h1>
+        <img src={Back} alt="back-button"  className='backbutton'/>
+        <h1 className='headertitle'>Oh no!</h1>
       </div>
       <h1>Oh no! The page is under construction</h1>
       <Nav/>

@@ -9,12 +9,12 @@ export default function ListMakerIngredients() {
     <div>
         {/*Header*/}
         <div className='header'>
-        <Link to="/components"><img src={Back} alt="back-button" to="/list" /></Link>
-        <h1>Dishes</h1>
+        <Link  className='backbutton' to="/components"><div><img src={Back} alt="back-button" to="/list" /></div></Link>
+        <h1  className='headertitle'>Dishes</h1>
         <ListDialog/>
       </div>
         <h1>Ingredients</h1>
-        <Link to="/overview"><img src={BigPlus} alt="BigPlus"/></Link>
+        <Link to="/overview" className="bigplus"><img className="bigplusimage" src={BigPlus} alt="BigPlus"/></Link>
 
     </div>
   )

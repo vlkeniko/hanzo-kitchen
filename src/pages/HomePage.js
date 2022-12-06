@@ -8,7 +8,7 @@ export default function HomePage() {
     <div>
       <div className='header'>
         
-        <h1>Home</h1>
+        <h1  className='headertitle'>Home</h1>
       </div>
       <HotnCold />
      

@@ -24,17 +24,23 @@ export default function ScrollDialog() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen('paper')}><img src={ListIcon} alt="ListIcon" /></Button>
+      <Button onClick={handleClickOpen('paper')}><img className="listicon" src={ListIcon} alt="ListIcon" /></Button>
       <Dialog
         open={open}
         onClose={handleClose}
         scroll={scroll}
+        className="dialog"
       >
-        <DialogTitle id="scroll-dialog-title">Prep list</DialogTitle>
+        <div className='dialogheader'>
+
+        <DialogTitle id="scroll-dialog-title" className="dialogtitle">Prep list</DialogTitle>
         <DialogActions>
-          <Button onClick={handleClose}>X</Button>
-        </DialogActions>
-        <DialogContent dividers={scroll === 'paper'}>
+          <Button className="dialogclose" onClick={handleClose}>X</Button>
+          </DialogActions>
+        </div>
+     
+       
+        <DialogContent className="dialogcontent" dividers={scroll === 'paper'}>
           <DialogContentText
             id="scroll-dialog-description"
     
@@ -42,7 +48,7 @@ export default function ScrollDialog() {
           >
             {[...new Array(10)]
               .map(
-                () => `List here.`,
+                () => `List here.`
               )
               }
           </DialogContentText>

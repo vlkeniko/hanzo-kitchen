@@ -6,15 +6,15 @@ export default function HotnCold() {
 
 
     return (
-        <div>
+        <div className='hot-n-cold'>
             <Link to="/construction">
                 <div className='hot-n-cold-card'>
-                    <h1>Hot Section</h1>
+                    <h1 className='hot-n-cold-label'>Hot Section</h1>
                 </div>
             </Link>
             <Link to="/list">
                 <div className='hot-n-cold-card'>
-                    <h1>Cold Section</h1>
+                    <h1 className='hot-n-cold-label'>Cold Section</h1>
                 </div>
             </Link>
         </div>

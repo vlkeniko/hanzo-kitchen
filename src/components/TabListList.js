@@ -7,19 +7,19 @@ import ListListPrep from './ListListPrep';
 export default function TabListList() {
   return (
     <div>
-      <Tabs>
-    <TabList >
-      <Tab>Orderlists</Tab>
-      <Tab>Preplists</Tab>
-    </TabList>
+      <Tabs className="tabcontainer">
+        <TabList className="tabs">
+          <Tab className="tab">Orderlists</Tab>
+          <Tab className="tab">Preplists</Tab>
+        </TabList>
 
-    <TabPanel>
-      <ListListOrder/>
-    </TabPanel>
-    <TabPanel>
-      <ListListPrep/>
-    </TabPanel>
-  </Tabs>
+        <TabPanel className="tabpanel">
+          <ListListOrder />
+        </TabPanel>
+        <TabPanel className="tabpanel">
+          <ListListPrep />
+        </TabPanel>
+      </Tabs>
     </div>
   )
 }

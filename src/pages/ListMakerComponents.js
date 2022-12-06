@@ -26,7 +26,7 @@ export default function ListMakerComponents() {
   const [components2, setComponents2] = useState([]);
   /* Getting items data from our endpoint */
   async function getComponents2() {
-    const url = `${endpoint}/ColdSection/Dishes/Fridge.json`;
+    const url = `${endpoint}/ColdSection/Dishes/Freezer.json`;
     let result = await getFromEndpoint(url);
     setComponents2(result);
   }
@@ -63,14 +63,14 @@ export default function ListMakerComponents() {
     <div>
       {/*Header*/}
       <div className='header'>
-        <Link to="/list"><img src={Back} alt="back-button" to="/list" /></Link>
-        <h1>Dishes</h1>
+        <Link to="/list"><div><img src={Back} alt="back-button" to="/list"  className='backbutton'/></div></Link>
+        <h1  className='headertitle'>Dishes</h1>
         <ListDialog/>
       </div>
 
       {/*Showing the dishes from the database*/}
 
-      <div>
+      <div className='list-container'>
         <div>Fridge</div>
         {components1.map((component1, i) => {
           return (
@@ -83,7 +83,7 @@ export default function ListMakerComponents() {
       </div>
 
 
-      <div>
+      <div className='list-container'>
         <div>Freezer</div>
         {components2.map((component2, i) => {
           return (
@@ -95,7 +95,7 @@ export default function ListMakerComponents() {
         })}
       </div>
 
-      <div>
+      <div className='list-container'>
         <div>Fish Fridge</div>
         {components3.map((component3, i) => {
           return (
@@ -107,7 +107,7 @@ export default function ListMakerComponents() {
         })}
       </div>
 
-      <div>
+      <div className='list-container'>
         <div>Basement</div>
         {components4.map((component4, i) => {
           return (
@@ -118,7 +118,7 @@ export default function ListMakerComponents() {
           );
         })}
       </div>
-      <Link to="/ingredients"><img src={BigPlus} alt="BigPlus"/></Link>
+      <Link to="/ingredients"><img src={BigPlus} alt="BigPlus" className="bigplusimage"/></Link>
     </div>
 
 
