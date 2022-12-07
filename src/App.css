@@ -49,9 +49,8 @@ center,
 dl,
 dt,
 dd,
-ol,
-ul,
-li,
+
+
 fieldset,
 form,
 label,
@@ -91,6 +90,10 @@ video {
   font: inherit;
   vertical-align: baseline;
   text-decoration: none;
+}
+
+textarea {
+  resize: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -340,6 +343,7 @@ font-style: normal !important;
   width: 90%;
   display: flex;
   justify-content: space-between;
+
 }
 
 .checked-item,
@@ -359,8 +363,108 @@ font-style: normal !important;
   background-color: var(--red);
   margin-left: auto;
   margin-right: auto;
-
   margin: 20px;
 }
 
+.exportdoc{
+  background-color: var(--white);
+  padding: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 
+.exportlist{
+  color: var(--blue);
+  padding: 10px;
+}
+
+.exportlistitem{
+  padding-bottom: 15px;
+  list-style-type: disc;
+  margin-left: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.exportforms{
+text-align: left;
+display: flex;
+align-items: flex-start;
+flex-direction: column;
+justify-content: flex-start;
+gap: 10px;
+padding: 10px;
+margin-left: auto;
+margin-right: auto;
+width: 300px;
+}
+
+.exportform{
+  text-align: left;
+}
+
+.exportformlabel{
+color: var(--blue);
+display: flex;
+gap: 10px;
+flex-direction: column;
+
+}
+
+.exportformcommentfield{
+  height: 100px;
+  width: 300px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family:'Lato',  sans-serif;
+  border: 2px solid var(--orange);
+  border-radius: 15px;
+}
+
+.exportformnamefield{
+  height: 20px;
+  width: 300px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: 2px solid var(--red);
+  border-radius: 15px;
+}
+
+.exportformsubmit{
+  border: 2px solid var(--orange);
+  border-radius: 15px;
+  background: none;
+  color: var(--orange);
+  font-family:'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px;
+  width: 70px;
+}
+
+.exportformsubmit:active{
+  background: var(--orange);
+  color: var(--white);
+}
+
+.sendconvertbutton{
+  border: 2px solid var(--orange);
+  border-radius: 30px;
+  background: none;
+  color: var(--orange);
+  font-family:'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px;
+  width: 100px;
+  height: 50px;
+}
+
+.sendconvertbutton:active{
+  background: var(--orange);
+  color: var(--white);
+}
