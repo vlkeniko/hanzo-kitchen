@@ -9,7 +9,7 @@ export default function Construction() {
         <img src={Back} alt="back-button"  className='backbutton'/>
         <h1 className='headertitle'>Oh no!</h1>
       </div>
-      <h1>Oh no! The page is under construction</h1>
+      <h1 className='bigtitle'>Oh no! The page is under construction</h1>
       <Nav/>
     </div>
   )

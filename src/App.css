@@ -209,6 +209,12 @@ table {
 
 /* Hot n cold */
 
+.bigtitle{
+  margin-top: 100px;
+  text-align: center;
+  font-size: 25px;
+}
+
 .hot-n-cold {
   display: flex;
   justify-content: center;
@@ -218,7 +224,7 @@ table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 200px;
+  margin-top: 100px;
 
 }
 
@@ -260,6 +266,7 @@ table {
   text-align: center;
   padding: 4px;
   width: 150px;
+  cursor: pointer;
 }
 
 .tab :active{
@@ -355,3 +362,5 @@ font-style: normal !important;
 
   margin: 20px;
 }
+
+
