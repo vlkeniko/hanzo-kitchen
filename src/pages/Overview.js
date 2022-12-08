@@ -29,7 +29,7 @@ export default function Overview() {
           <li className='exportlistitem'>List item</li>
         </ul>
 
-        <form className='exportforms'>
+       {/*  <form className='exportforms'>
           <div className='exportform'>
             
             <label className='exportformlabel'>
@@ -43,7 +43,7 @@ export default function Overview() {
               <input type="text" name="name" className='exportformnamefield' required/>
             </label>
             <input type="submit" value="Submit" className='exportformsubmit' /></div>
-        </form>
+        </form> */}
       </div>
       <Pdf  targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Send PDF</button>}
