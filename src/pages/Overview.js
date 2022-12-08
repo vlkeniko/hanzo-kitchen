@@ -59,13 +59,13 @@ export default function Overview() {
         <h1 className='headertitle'>Overview</h1>
       </div>
 
-      <div className='exportdoc' ref={ref}>
+      <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
           <h1 className='title'>Ingredients</h1>
           {isPosts ? (
-            <div className="e">
+            <div className='exportdoc'>
               {posts.map((post, index) => (
-                <div className="exportlistitemlist" key={index}>
+                <div className="exportlistitemlist" key={index} ref={ref}>
                   <p className='exportlistitem'>{post}</p>
                 </div>
               ))}
@@ -76,22 +76,32 @@ export default function Overview() {
 
                 <label className='exportformlabel'>Name</label>
                 <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)} className='exportformnamefield' required></input>
-                <button className='exportformsubmit'>Save list</button>
+                <div className='submitbuttons'>
+                  <Pdf targetRef={ref} filename="code-example.pdf">
+                    {({ toPdf }) => <button className="exportformsubmit" onClick={toPdf}>Save PDF</button>}
+                  </Pdf>
+                  <button className='exportformsubmit'>Save list</button>
+                </div>
+
+
               </div>
 
-              
+
             </div>
 
           ) : (
             <p className='exportlistitem'>Nothing to show</p>
+
           )}
-          
+
         </form>
 
       </div>
-      <Pdf targetRef={ref} filename="code-example.pdf">
-        {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Send PDF</button>}
-      </Pdf>
+
+
+
+
+
     </div>
   )
 }
