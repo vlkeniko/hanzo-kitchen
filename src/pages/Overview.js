@@ -11,8 +11,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 
 import Pdf from "react-to-pdf";
-import Input from '../components/form';
-
 const ref = React.createRef();
 
 
@@ -23,7 +21,7 @@ export default function Overview() {
   const [username, setName] = useState("");
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     async function getPosts() {
       if (location.state.ingredientslist.length > 0) {
@@ -43,16 +41,16 @@ export default function Overview() {
       ingredientslist: JSON.stringify(location.state.ingredientslist)
     }
 
-    const url = "https://dishes-c89c9-default-rtdb.europe-west1.firebasedatabase.app/savedlists.json";
-        
+    const url = "https://hanzolist-b6cc3-default-rtdb.europe-west1.firebasedatabase.app/SavedLists.json";
+
     const response = await fetch(url, {
-        method: "POST", 
-        body: JSON.stringify(formData) 
+      method: "POST",
+      body: JSON.stringify(formData)
     });
     const data = await response.json();
     console.log(data);
-    navigate("/");
-    }
+    // navigate("/");
+  }
 
   return (
     <div>
@@ -60,52 +58,40 @@ export default function Overview() {
         <Link className='backbutton' to="/ingredients"><div><img src={Back} alt="back-button" /></div></Link>
         <h1 className='headertitle'>Overview</h1>
       </div>
+
       <div className='exportdoc' ref={ref}>
-      <form className="page" onSubmit={handleSubmit}>
-          <h1>Ingredients</h1>
+        <form className="page" onSubmit={handleSubmit}>
+          <h1 className='title'>Ingredients</h1>
           {isPosts ? (
-            <div className="flexbox">
+            <div className="e">
               {posts.map((post, index) => (
-                <div className="card_container" key={index}> 
-                <span className="ident">afadsf</span>
-                <section className="card">
-                  <div className="danish">
-                    <p>[Ingredients]</p>
-                    <p>{post}</p>
-                  </div>
-                  </section>
-              </div>
+                <div className="exportlistitemlist" key={index}>
+                  <p className='exportlistitem'>{post}</p>
+                </div>
               ))}
-          <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)}></textarea>
-          <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)}></input>
-        </div>
-        
+
+              <div className='exportform'>
+                <label className='exportformlabel'>Comment</label>
+                <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)} className='exportformcommentfield'></textarea>
+
+                <label className='exportformlabel'>Name</label>
+                <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)} className='exportformnamefield' required></input>
+                <button className='exportformsubmit'>Save list</button>
+              </div>
+
+              
+            </div>
+
           ) : (
-            <p>Nothing to show</p>
+            <p className='exportlistitem'>Nothing to show</p>
           )}
-          <button>Save list</button>
+          
         </form>
 
-       {/*  <form className='exportforms'>
-          <div className='exportform'>
-            
-            <label className='exportformlabel'>
-              Comment
-              <textarea type="text" name="comment" className='exportformcommentfield' />
-            </label>
-            </div>
-          <div className='exportform'>
-            <label className='exportformlabel'>
-              Name
-              <input type="text" name="name" className='exportformnamefield' required/>
-            </label>
-            <input type="submit" value="Submit" className='exportformsubmit' /></div>
-        </form> */}
       </div>
-      <Pdf  targetRef={ref} filename="code-example.pdf">
+      <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Send PDF</button>}
       </Pdf>
-<Input/>
     </div>
   )
 }

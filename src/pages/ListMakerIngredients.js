@@ -4,6 +4,7 @@ import ListDialog from '../components/ListDialog';
 import Back from '../pictures/back.svg';
 import BigPlus from '../pictures/BigPlus.svg';
 import { useEffect, useState } from "react";
+import { endpoint } from "../utils/database_functions.js";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ResultPage(props) {
@@ -26,6 +27,7 @@ export default function ResultPage(props) {
 
 
 async function getData(dish) {
+  // const url = `${endpoint}/ColdSection/Dishes/Basement/${dish}/ingredients.json`;
 const url = `https://dishes-c89c9-default-rtdb.europe-west1.firebasedatabase.app/dishes/${dish}/ingredients.json`;
 const response = await fetch(url);
 const data = await response.json();
@@ -74,29 +76,20 @@ return data;
    <h1  className='headertitle'>Dishes</h1>
    <ListDialog/>
  </div>
-
     <form className="page" onSubmit={handleSubmit}>
-      <h1>Ingredients</h1>
-
 
       {isPosts ? (
-        <div className="flexbox">
+        <div className="list-container">
           {posts.map((post, index) => (
-            <div className="card_container" key={index}> 
-              <span className="ident">{index}</span>
-            <section className="card">
-              <div className="english">
-                <p>[Id]</p>
+            <div key={index}> 
+        
+            <section className="listitem">
+            {/*   <div className="english">
+            
                 <p>{post.id}</p>
-              </div>
-              <div>&rarr;</div>
-              <div className="danish">
-                <p>[Ingredients]</p>
+              </div> */}
                 <p>{post.name}</p>
-              </div>
-              <div>
-                  <input type="checkbox" value={post.name} onChange={handleCheck} ></input>
-              </div>
+                  <input type="checkbox" value={post.name} onChange={handleCheck} />
               </section>
           </div>
           ))}
@@ -104,7 +97,7 @@ return data;
       ) : (
         <p>Nothing to show</p>
       )}
-      <button><img src={BigPlus} alt="BigPlus" className="bigplusimage"/></button>
+      <button className="submitbutton" ><img src={BigPlus} alt="BigPlus" className="bigplusimage"/></button>
     </form>
     </>
     
