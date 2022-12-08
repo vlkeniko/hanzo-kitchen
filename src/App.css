@@ -485,8 +485,45 @@ body {
   color: var(--white);
 }
 
-.submitbuttons{
+.submitbuttons {
   display: flex;
   justify-content: right;
   gap: 10px;
+}
+
+
+/*Changing the checkbox ticks to pluses*/
+
+input[type="checkbox"] {
+  -webkit-appearance: initial;
+  appearance: initial;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 2px solid var(--orange);
+  background-image: url("./pictures/plus.svg");
+  padding: 2px;
+  background-size: contain;
+  border-radius: 30px;
+}
+
+input[type="checkbox"]:checked {
+  -webkit-appearance: initial;
+  appearance: initial;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 2px solid var(--red);
+  background-image: url("./pictures/witheplus.svg");
+  background-color: var(--red);
+  padding: 2px;
+  background-size: contain;
+  border-radius: 30px;
+
+}
+
+input[type="checkbox"]:checked:after {
+  background: none;
+  border: 2px solid var(--orange);
+
 }

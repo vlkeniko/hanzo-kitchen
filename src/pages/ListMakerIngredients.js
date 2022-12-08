@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
 import Back from '../pictures/back.svg';
-import BigPlus from '../pictures/BigPlus.svg';
+import BigPlus from '../pictures/arrow.svg';
 import { useEffect, useState } from "react";
 import { endpoint } from "../utils/database_functions.js";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -89,7 +89,11 @@ return data;
                 <p>{post.id}</p>
               </div> */}
                 <p>{post.name}</p>
-                  <input type="checkbox" value={post.name} onChange={handleCheck} />
+          
+                  <label class="container">
+                    <input type="checkbox" value={post.name} onChange={handleCheck}/>
+                      <span class="checkmark"></span>
+                  </label>
               </section>
           </div>
           ))}

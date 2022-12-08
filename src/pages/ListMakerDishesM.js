@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { endpoint, getFromEndpoint } from "../utils/database_functions.js";
 import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
-import BigPlus from '../pictures/BigPlus.svg'
+import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
 
 export default function ListMakerDishesM() {
@@ -62,7 +62,7 @@ export default function ListMakerDishesM() {
       </div>
 
       <form className="page" onSubmit={handleSubmit}>
-   
+
 
 
         {isPosts ? (
@@ -76,7 +76,11 @@ export default function ListMakerDishesM() {
                 <p>{post.id}</p>
               </div> */}
                   <p>{post.name}</p>
-                  <input type="checkbox" value={index} onChange={handleCheck} ></input>
+            
+                  <label class="container">
+                    <input type="checkbox" value={index} onChange={handleCheck}/>
+                      <span class="checkmark"></span>
+                  </label>
                 </section>
               </div>
             ))}
