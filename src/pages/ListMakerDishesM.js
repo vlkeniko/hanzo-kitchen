@@ -26,7 +26,7 @@ export default function ListMakerDishesM() {
 
   useEffect(() => {
     async function getPosts() {
-      const url = `${endpoint}/ColdSection/Dishes/Basement.json`;
+      const url = `${endpoint}/ColdSection/Dishes/Fridge.json`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -42,6 +42,8 @@ export default function ListMakerDishesM() {
     }
     getPosts();
   }, []);
+
+
 
   function handleSubmit(e) {
     e.preventDefault();

@@ -1,7 +1,7 @@
 <svg id="Component_12_1" data-name="Component 12 – 1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
   <rect id="Rectangle_20" data-name="Rectangle 20" width="50" height="50" rx="1" fill="none"/>
   <g id="Component_9_1" data-name="Component 9 – 1" transform="translate(12.5 12.5)">
-    <path id="Path_535" data-name="Path 535" d="M25,0H0" transform="translate(12.5) rotate(90)" fill="none" stroke="#d69300" stroke-width="3"/>
-    <path id="Path_536" data-name="Path 536" d="M25,.022H0" transform="translate(0 12.478)" fill="none" stroke="#d69300" stroke-width="3"/>
+    <path id="Path_535" data-name="Path 535" d="M25,0H0" transform="translate(12.5) rotate(90)" fill="none" stroke="#fffcf6" stroke-width="3"/>
+    <path id="Path_536" data-name="Path 536" d="M25,.022H0" transform="translate(0 12.478)" fill="none" stroke="#fffcf6" stroke-width="3"/>
   </g>
 </svg>

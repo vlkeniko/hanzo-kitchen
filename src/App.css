@@ -514,7 +514,7 @@ input[type="checkbox"]:checked {
   height: 40px;
   background: none;
   border: 2px solid var(--red);
-  background-image: url("./pictures/witheplus.svg");
+  background-image: url("./pictures/plus.svg");
   background-color: var(--red);
   padding: 2px;
   background-size: contain;

@@ -28,7 +28,7 @@ export default function ResultPage(props) {
 
 async function getData(dish) {
   // const url = `${endpoint}/ColdSection/Dishes/Basement/${dish}/ingredients.json`;
-const url = `https://dishes-c89c9-default-rtdb.europe-west1.firebasedatabase.app/dishes/${dish}/ingredients.json`;
+const url = `https://hanzolist-b6cc3-default-rtdb.europe-west1.firebasedatabase.app/ColdSection/Dishes/Fidge/${dish}/ingredients.json`;
 const response = await fetch(url);
 const data = await response.json();
 return data;
