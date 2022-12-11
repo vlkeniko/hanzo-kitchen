@@ -4,7 +4,7 @@ import ListDialog from '../components/ListDialog';
 import Back from '../pictures/back.svg';
 import BigPlus from '../pictures/arrow.svg';
 import { useEffect, useState } from "react";
-import { endpoint } from "../utils/database_functions.js";
+// import { endpoint } from "../utils/database_functions.js";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ResultPage(props) {
@@ -13,7 +13,7 @@ export default function ResultPage(props) {
   const [checked, setChecked] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   // Add/Remove checked item from list  
   const handleCheck = (event) => {
     var updatedList = [...checked];
@@ -23,88 +23,89 @@ export default function ResultPage(props) {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
-};
+  };
 
 
-async function getData(dish) {
-  // const url = `${endpoint}/ColdSection/Dishes/Basement/${dish}/ingredients.json`;
-const url = `https://hanzolist-b6cc3-default-rtdb.europe-west1.firebasedatabase.app/ColdSection/Dishes/Fidge/${dish}/ingredients.json`;
-const response = await fetch(url);
-const data = await response.json();
-return data;
-}
-    
+  async function getData(dish) {
+    // const url = `${endpoint}/ColdSection/Dishes/Basement/${dish}/ingredients.json`;
+    const url = `https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/dishes/${dish}/ingredients.json`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+
   useEffect(() => {
-      async function getPosts() {
-        // let postsArray = [];
-        let database = [];
-        let data;
+    async function getPosts() {
+      // let postsArray = [];
+      let database = [];
+      let data;
 
-        for (const dish of location.state.dishlist) {
-          data = await getData(dish);
-          database.push(...data);
-        }
+      for (const dish of location.state.dishlist) {
+        data = await getData(dish);
+        database.push(...data);
+      }
 
-        if (data !== null) {
-          /*postsArray = Object.keys(database).map((key) => ({
-            id: key,
-            ...data[key],
-          })); */
-          setPosts(database); // Update "posts" object array list. Set posts equal to postsArray
-          } else {
-          setIsPosts(false); // If no data is found, set isPosts to "false". "Noting to show" message is shown.
-          }
-        }
-    
+      if (data !== null) {
+        /*postsArray = Object.keys(database).map((key) => ({
+          id: key,
+          ...data[key],
+        })); */
+        setPosts(database); // Update "posts" object array list. Set posts equal to postsArray
+      } else {
+        setIsPosts(false); // If no data is found, set isPosts to "false". "Noting to show" message is shown.
+      }
+    }
+
     getPosts();
   }, []);
 
- function handleSubmit(e) {
+
+  function handleSubmit(e) {
     e.preventDefault();
     navigate('/overview', {
-        state: {
-            ingredientslist: checked
-        }
+      state: {
+        ingredientslist: checked
+      }
     })
- }
+  }
 
   return (
     <>
-     {/*Header*/}
-   <div className='header'>
-   <Link to="/dishes"><div><img src={Back} alt="back-button" to="/dishes"  className='backbutton'/></div></Link>
-   <h1  className='headertitle'>Dishes</h1>
-   <ListDialog/>
- </div>
-    <form className="page" onSubmit={handleSubmit}>
+      {/*Header*/}
+      <div className='header'>
+        <Link to="/dishes"><div><img src={Back} alt="back-button" to="/dishes" className='backbutton' /></div></Link>
+        <h1 className='headertitle'>Dishes</h1>
+        <ListDialog />
+      </div>
+      <form className="page" onSubmit={handleSubmit}>
 
-      {isPosts ? (
-        <div className="list-container">
-          {posts.map((post, index) => (
-            <div key={index}> 
-        
-            <section className="listitem">
-            {/*   <div className="english">
+        {isPosts ? (
+          <div className="list-container">
+            {posts.map((post, index) => (
+              <div key={index}>
+
+                <section className="listitem">
+                 
             
                 <p>{post.id}</p>
-              </div> */}
-                <p>{post.name}</p>
-          
-                  <label class="container">
-                    <input type="checkbox" value={post.name} onChange={handleCheck}/>
-                      <span class="checkmark"></span>
+             
+                  <p>{post.name}</p>
+
+                  <label className="container">
+                    <input type="checkbox" value={post.name} onChange={handleCheck} />
+                    <span className="checkmark"></span>
                   </label>
-              </section>
+                </section>
+              </div>
+            ))}
           </div>
-          ))}
-        </div>
-      ) : (
-        <p>Nothing to show</p>
-      )}
-      <button className="submitbutton" ><img src={BigPlus} alt="BigPlus" className="bigplusimage"/></button>
-    </form>
+        ) : (
+          <p>Nothing to show</p>
+        )}
+        <button className="submitbutton" ><img src={BigPlus} alt="BigPlus" className="bigplusimage" /></button>
+      </form>
     </>
-    
-        
+
+
   );
 }

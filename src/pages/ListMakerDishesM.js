@@ -1,7 +1,7 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
-import { endpoint, getFromEndpoint } from "../utils/database_functions.js";
+
 import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
@@ -11,6 +11,7 @@ export default function ListMakerDishesM() {
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
+  const updatedList = useState ([]);
   const navigate = useNavigate();
 
   // Add/Remove checked item from list
@@ -22,14 +23,19 @@ export default function ListMakerDishesM() {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
+    console.log(updatedList);
   };
+
+  
+
 
   useEffect(() => {
     async function getPosts() {
-      const url = `${endpoint}/ColdSection/Dishes/Fridge.json`;
+      const url = `https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/dishes.json`;
       const response = await fetch(url);
       const data = await response.json();
-
+      console.log('Response:', response);
+      
       if (data !== null) {
         const postsArray = Object.keys(data).map((key) => ({
           id: key,
@@ -60,7 +66,7 @@ export default function ListMakerDishesM() {
       <div className='header'>
         <Link to="/"><div><img src={Back} alt="back-button" to="/list" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
-        <ListDialog />
+        <ListDialog/>
       </div>
 
       <form className="page" onSubmit={handleSubmit}>
@@ -78,10 +84,10 @@ export default function ListMakerDishesM() {
                 <p>{post.id}</p>
               </div> */}
                   <p>{post.name}</p>
-            
-                  <label class="container">
-                    <input type="checkbox" value={index} onChange={handleCheck}/>
-                      <span class="checkmark"></span>
+
+                  <label className="container">
+                    <input type="checkbox" value={index} onChange={handleCheck} />
+                    <span className="checkmark"></span>
                   </label>
                 </section>
               </div>

@@ -6,8 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ListIcon from "../pictures/list-icon-blue.svg"
+import TabDialog from './TabDialog';
 
-export default function ScrollDialog() {
+export default function ListDialog(props) {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
 
@@ -20,7 +21,7 @@ export default function ScrollDialog() {
     setOpen(false);
   };
 
-;
+  ;
 
   return (
     <div>
@@ -33,24 +34,20 @@ export default function ScrollDialog() {
       >
         <div className='dialogheader'>
 
-        <DialogTitle id="scroll-dialog-title" className="dialogtitle">Prep list</DialogTitle>
-        <DialogActions>
-          <Button className="dialogclose" onClick={handleClose}>X</Button>
+          <DialogTitle id="scroll-dialog-title" className="dialogtitle">Prep list</DialogTitle>
+          <DialogActions>
+            <Button className="dialogclose" onClick={handleClose}>X</Button>
           </DialogActions>
         </div>
-     
-       
+        <TabDialog />
+
         <DialogContent className="dialogcontent" dividers={scroll === 'paper'}>
           <DialogContentText
             id="scroll-dialog-description"
-    
+
             tabIndex={-1}
           >
-            {[...new Array(10)]
-              .map(
-                () => `List here.`
-              )
-              }
+          
           </DialogContentText>
         </DialogContent>
 

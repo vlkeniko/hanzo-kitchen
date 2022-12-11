@@ -1,13 +1,13 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
-import { Form, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 /* import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, auth } from "../firebaseConfig"
  */
 
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 import Pdf from "react-to-pdf";
@@ -20,7 +20,7 @@ export default function Overview() {
   const [usermessage, setMessage] = useState("");
   const [username, setName] = useState("");
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     async function getPosts() {
@@ -41,7 +41,7 @@ export default function Overview() {
       ingredientslist: JSON.stringify(location.state.ingredientslist)
     }
 
-    const url = "https://hanzolist-b6cc3-default-rtdb.europe-west1.firebasedatabase.app/SavedLists.json";
+    const url = "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/Savedlists.json";
 
     const response = await fetch(url, {
       method: "POST",
