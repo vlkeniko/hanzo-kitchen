@@ -12,7 +12,7 @@ export default function HotnCold() {
                     <h1 className='hot-n-cold-label'>Hot Section</h1>
                 </div>
             </Link>
-            <Link to="/dishes">
+            <Link to="/lists">
                 <div className='hot-n-cold-card'>
                     <h1 className='hot-n-cold-label'>Cold Section</h1>
                 </div>

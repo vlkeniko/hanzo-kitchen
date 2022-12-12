@@ -535,3 +535,12 @@ input[type="checkbox"]:checked:after {
   padding-top: 30px;
   padding-bottom: 10px;
 }
+
+.listscard{
+  padding: 15px;
+  background-color: var(--white);
+  color: var(--blue);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}

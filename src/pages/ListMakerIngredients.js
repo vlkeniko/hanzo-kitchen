@@ -23,6 +23,8 @@ export default function ResultPage(props) {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
+        // Setting user data to localStorage
+        localStorage.setItem("updatedListIngredients", JSON.stringify(updatedList));
   };
 
 

@@ -14,7 +14,7 @@ export default function PreplistsOrderlists() {
         <h1  className='headertitle'>Lists</h1>
       </div>
       <TabListList/>
-      <Link to="/checklistcomponents" className="bigplus"><img className="bigplusimage" src={BigPlus} alt="BigPlus"/></Link>
+      <Link to="/dishes" className="bigplus"><img className="bigplusimage" src={BigPlus} alt="BigPlus"/></Link>
     </div>
   )
 }

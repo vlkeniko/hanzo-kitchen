@@ -25,6 +25,8 @@ export default function ListMakerDishesM() {
     }
     setChecked(updatedList);
     // console.log(updatedList);
+    // Setting user data to localStorage
+    localStorage.setItem("updatedList", JSON.stringify(updatedList));
   };
 
 
@@ -66,7 +68,7 @@ export default function ListMakerDishesM() {
     <>
       {/*Header*/}
       <div className='header'>
-        <Link to="/"><div><img src={Back} alt="back-button" to="/list" className='backbutton' /></div></Link>
+        <Link to="/list"><div><img src={Back} alt="back-button" to="/list" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
         <ListDialog />
       </div>
@@ -97,7 +99,7 @@ export default function ListMakerDishesM() {
             ))}
 
             <h1 className='goldtitle'>Freezer</h1>
-            <p>Dont forget to defrost ingredients for tomorrow!</p>
+            <p className='nolist'>Dont forget to defrost ingredients for tomorrow!</p>
             {posts.map((post, index) => (
               <>
 
