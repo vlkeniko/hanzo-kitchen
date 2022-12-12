@@ -42,12 +42,10 @@ export default function ListDialog(props) {
         <TabDialog />
 
         <DialogContent className="dialogcontent" dividers={scroll === 'paper'}>
-          <DialogContentText
-            id="scroll-dialog-description"
-
-            tabIndex={-1}
-          >
+          <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
           
+       <label>{props.list}</label> 
+      
           </DialogContentText>
         </DialogContent>
 

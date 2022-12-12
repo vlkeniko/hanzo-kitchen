@@ -13,12 +13,13 @@ export default function TabDialog(props) {
         </TabList>
 
         <TabPanel className="tabpanel">
-        <label>
-        {props.updatedlist}
-      </label>
+          <label>
+            {console.log(props.list)}
+            {props.list}
+          </label>
         </TabPanel>
         <TabPanel className="tabpanel">
-<div>Check ingredients to see Order list.</div>
+          <div>Check ingredients to see Order list.</div>
         </TabPanel>
       </Tabs>
     </div>

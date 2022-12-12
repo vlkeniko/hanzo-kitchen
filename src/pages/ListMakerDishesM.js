@@ -7,11 +7,12 @@ import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
 
+
 export default function ListMakerDishesM() {
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
-  const updatedList = useState ([]);
+  const updatedList = useState([]);
   const navigate = useNavigate();
 
   // Add/Remove checked item from list
@@ -23,10 +24,10 @@ export default function ListMakerDishesM() {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
-    console.log(updatedList);
+    // console.log(updatedList);
   };
 
-  
+
 
 
   useEffect(() => {
@@ -34,8 +35,7 @@ export default function ListMakerDishesM() {
       const url = `https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/dishes.json`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log('Response:', response);
-      
+
       if (data !== null) {
         const postsArray = Object.keys(data).map((key) => ({
           id: key,
@@ -50,7 +50,7 @@ export default function ListMakerDishesM() {
   }, []);
 
 
-
+//This thing creates an o
   function handleSubmit(e) {
     e.preventDefault();
     navigate('/ingredients', {
@@ -60,37 +60,100 @@ export default function ListMakerDishesM() {
     })
   }
 
+  
+
   return (
     <>
       {/*Header*/}
       <div className='header'>
         <Link to="/"><div><img src={Back} alt="back-button" to="/list" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
-        <ListDialog/>
+        <ListDialog />
       </div>
 
       <form className="page" onSubmit={handleSubmit}>
-
-
-
         {isPosts ? (
           <div className="list-container">
+           
+            
+           <h1>Fridge</h1>
             {posts.map((post, index) => (
-              <div className="lis" key={post.id}>
-                {/* <span className="ident">{post.place}</span> */}
+               <>
+               
+               {post.place == "fridge" ? (
+              <div className="lis" key={post.place}>
                 <section className="listitem">
-                  {/*     <div className="danish">
-      
-                <p>{post.id}</p>
-              </div> */}
                   <p>{post.name}</p>
-
                   <label className="container">
                     <input type="checkbox" value={index} onChange={handleCheck} />
                     <span className="checkmark"></span>
                   </label>
                 </section>
               </div>
+               ) : (
+                ""
+              )}
+              </>
+            ))}
+
+<h1>Freezer</h1>
+            {posts.map((post, index) => (
+               <>
+               
+               {post.place == "freezer" ? (
+              <div className="lis" key={post.place}>
+                <section className="listitem">
+                  <p>{post.name}</p>
+                  <label className="container">
+                    <input type="checkbox" value={index} onChange={handleCheck} />
+                    <span className="checkmark"></span>
+                  </label>
+                </section>
+              </div>
+               ) : (
+                ""
+              )}
+              </>
+            ))}
+           
+           <h1>Fish fridge</h1>
+            {posts.map((post, index) => (
+               <>
+               
+               {post.place == "frishfridge" ? (
+              <div className="lis" key={post.place}>
+                <section className="listitem">
+                  <p>{post.name}</p>
+                  <label className="container">
+                    <input type="checkbox" value={index} onChange={handleCheck} />
+                    <span className="checkmark"></span>
+                  </label>
+                </section>
+              </div>
+               ) : (
+                ""
+              )}
+              </>
+            ))}
+
+<h1>Basement</h1>
+            {posts.map((post, index) => (
+               <>
+               
+               {post.place == "basement" ? (
+              <div className="lis" key={post.place}>
+                <section className="listitem">
+                  <p>{post.name}</p>
+                  <label className="container">
+                    <input type="checkbox" value={index} onChange={handleCheck} />
+                    <span className="checkmark"></span>
+                  </label>
+                </section>
+              </div>
+               ) : (
+                ""
+              )}
+              </>
             ))}
           </div>
         ) : (

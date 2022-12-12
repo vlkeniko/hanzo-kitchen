@@ -10,6 +10,7 @@ import ListMakerDishesM from './pages/ListMakerDishesM';
 
 
 
+
 function App() {
   return (
     <main>
@@ -17,6 +18,7 @@ function App() {
       <Route path="/dishes" element={<ListMakerDishesM/>} />
       <Route path="/ingredients" element={<ListMakerIngredients/>} />
       <Route path="/construction" element={<Construction/>} />
+      {/* <Route path="/lists" element={<PreplistsOrderlists/>} /> */}
       <Route path="/overview" element={<Overview/>} />
       <Route path="/" element={<HomePage/>} />
     </Routes>
