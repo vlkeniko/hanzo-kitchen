@@ -34,7 +34,7 @@ export default function ListListOrder() {
       <h3>Today</h3>
       <div className='nolist'><p>No order list has been made today.</p></div>
       <h3>This week</h3>
-      <div className='list-container'>
+      <div className='lists-container'>
         {posts.map((post, index) => (
           <>
             <div className="listscard" key={post.id}>

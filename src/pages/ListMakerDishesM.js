@@ -68,7 +68,7 @@ export default function ListMakerDishesM() {
     <>
       {/*Header*/}
       <div className='header'>
-        <Link to="/list"><div><img src={Back} alt="back-button" to="/list" className='backbutton' /></div></Link>
+        <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
         <ListDialog />
       </div>
@@ -76,12 +76,9 @@ export default function ListMakerDishesM() {
       <form className="page" onSubmit={handleSubmit}>
         {isPosts ? (
           <div className="list-container">
-
-
             <h1 className='goldtitle'>Fridge</h1>
             {posts.map((post, index) => (
               <>
-
                 {post.place == "fridge" ? (
                   <div className="lis" key={post.place}>
                     <section className="listitem">
