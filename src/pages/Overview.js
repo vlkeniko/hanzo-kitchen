@@ -5,16 +5,23 @@ import { Link } from 'react-router-dom';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db, auth } from "../firebaseConfig"
  */
-
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
-
+// import { Navigate } from 'react-router-dom';
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
 
 export default function Overview() {
+
+  const showToastSave = () => {
+    toast.success('List saved.', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+  }
+
   const location = useLocation();
   const [posts, setPosts] = useState([]);
   const [usermessage, setMessage] = useState("");
@@ -49,7 +56,8 @@ export default function Overview() {
     });
     const data = await response.json();
     console.log(data);
-    // navigate("/");
+    showToastSave();
+    // Navigate ="/";
   }
 
   return (
@@ -63,9 +71,9 @@ export default function Overview() {
         <form className="page" onSubmit={handleSubmit}>
           <h1 className='title'>Ingredients</h1>
           {isPosts ? (
-            <div className='exportdoc'>
+            <div className='exportdoc' ref={ref}>
               {posts.map((post, index) => (
-                <div className="exportlistitemlist" key={index} ref={ref}>
+                <div className="exportlistitemlist" key={index} >
                   <p className='exportlistitem'>{post}</p>
                 </div>
               ))}

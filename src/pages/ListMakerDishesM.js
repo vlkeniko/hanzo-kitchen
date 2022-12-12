@@ -1,12 +1,12 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
-import { Toast } from 'react-toastify/dist/components';
 import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
-
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ListMakerDishesM() {
 
@@ -16,23 +16,31 @@ export default function ListMakerDishesM() {
   const updatedList = useState([]);
   const navigate = useNavigate();
 
+  const showToastAdd = () => {
+    toast.success("${post.name} " + 'was added to the preplist!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+  }
+
+  const showToastRemove = () => {
+    toast.success("${post.name} " + 'was removed from the preplist!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+  }
   // Add/Remove checked item from list
   const handleCheck = (event) => {
     var updatedList = [...checked];
     if (event.target.checked) {
       updatedList = [...checked, event.target.value];
+      showToastAdd();
     } else {
       updatedList.splice(checked.indexOf(event.target.value), 1);
+      showToastRemove();
     }
     setChecked(updatedList);
     // Setting user data to localStorage
     localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
-    const showToastMessage = () => {
-      Toast.success('Success Notification !', {
-        position: Toast.POSITION.TOP_RIGHT
-      });
-      showToastMessage();
-    };
+  
   }
   /* var checkedlist = updatedList && posts;
     console.log(checkedlist) */

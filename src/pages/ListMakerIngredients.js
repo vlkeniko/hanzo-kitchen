@@ -6,6 +6,8 @@ import BigPlus from '../pictures/arrow.svg';
 import { useEffect, useState } from "react";
 // import { endpoint } from "../utils/database_functions.js";
 import { useNavigate, useLocation } from "react-router-dom";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ListMakerIngredients(props) {
   const [posts, setPosts] = useState([]);
@@ -70,6 +72,12 @@ export default function ListMakerIngredients(props) {
         ingredientslist: checked
       }
     })
+  }
+
+  const showToastMessage = () => {
+    toast.success('Success Notification !', {
+        position: toast.POSITION.TOP_RIGHT
+    });
   }
 
   return (
