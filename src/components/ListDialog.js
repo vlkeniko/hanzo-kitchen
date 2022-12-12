@@ -1,59 +1,75 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import Avatar from '@mui/material/Avatar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import listicon from '../pictures/list-icon-blue.svg';
+import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
-import ListIcon from "../pictures/list-icon-blue.svg"
-import TabDialog from './TabDialog';
-import { List, ListItemText } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
 
 
-export default function ListDialog(props) {
-  const [open, setOpen] = React.useState(false);
-  const [scroll, setScroll] = React.useState('paper');
 
-  const handleClickOpen = (scrollType) => () => {
-    setOpen(true);
-    setScroll(scrollType);
-  };
+
+const emails = ['Cucumber dip', 'Pak choi', 'Tamarind sauce'];
+
+function SimpleDialog(props) {
+  const { onClose, selectedValue, open } = props;
 
   const handleClose = () => {
-    setOpen(false);
+    onClose(selectedValue);
   };
 
-  const list = props.list;
+  const handleListItemClick = (value) => {
+    onClose(value);
+  };
+
+  return (
+    <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>Dishes</DialogTitle>
+      <List sx={{ pt: 0 }}>
+        {emails.map((email) => (
+          <ListItem button onClick={() => handleListItemClick(email)} key={email}>
+            <ListItemText primary={email} />
+          </ListItem>
+        ))}
+      </List>
+    </Dialog>
+  );
+}
+
+SimpleDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  selectedValue: PropTypes.string.isRequired,
+};
+
+export default function SimpleDialogDemo() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
 
   return (
     <div>
-      <Button onClick={handleClickOpen('paper')}><img className="listicon" src={ListIcon} alt="ListIcon" /></Button>
-      <Dialog
+ 
+      <br />
+      <Button variant="outlined" onClick={handleClickOpen}>
+        <img className='listicon' src={listicon} alt="listicon" />
+      </Button>
+      <SimpleDialog
+        selectedValue={selectedValue}
         open={open}
         onClose={handleClose}
-        scroll={scroll}
-        className="dialog"
-      >
-        <div className='dialogheader'>
-
-          <DialogTitle id="scroll-dialog-title" className="dialogtitle">Prep list</DialogTitle>
-
-          <ListItemText primary={list} />
-          <DialogActions>
-            <Button className="dialogclose" onClick={handleClose}>X</Button>
-          </DialogActions>
-        </div>
-        <TabDialog list={props.list}/>
-
-        <DialogContent className="dialogcontent" dividers={scroll === 'paper'}>
-          <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
-          
-       
-       
-          </DialogContentText>
-        </DialogContent>
-
-      </Dialog>
+      />
     </div>
   );
 }

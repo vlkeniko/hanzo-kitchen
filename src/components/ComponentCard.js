@@ -9,7 +9,6 @@ export default function ComponentCard(props) {
       <div>
         <input type="checkbox" id="componentcheck" name="check"/>
       </div>
-
     </div>
 
  

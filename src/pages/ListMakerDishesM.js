@@ -24,13 +24,12 @@ export default function ListMakerDishesM() {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
-    // console.log(updatedList);
-    // Setting user data to localStorage
-    localStorage.setItem("updatedList", JSON.stringify(updatedList));
+  // Setting user data to localStorage
+  localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
   };
 
-
-
+/* var checkedlist = updatedList && posts;
+  console.log(checkedlist) */
 
   useEffect(() => {
     async function getPosts() {
@@ -51,7 +50,6 @@ export default function ListMakerDishesM() {
     getPosts();
   }, []);
 
-
   //This thing creates an o
   function handleSubmit(e) {
     e.preventDefault();
@@ -62,15 +60,13 @@ export default function ListMakerDishesM() {
     })
   }
 
-
-
   return (
     <>
       {/*Header*/}
       <div className='header'>
         <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
-        <ListDialog />
+        <ListDialog list={updatedList} />
       </div>
 
       <form className="page" onSubmit={handleSubmit}>
@@ -80,11 +76,11 @@ export default function ListMakerDishesM() {
             {posts.map((post, index) => (
               <>
                 {post.place == "fridge" ? (
-                  <div className="lis" key={post.place}>
+                  <div className="lis" key={post.id}>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -101,11 +97,11 @@ export default function ListMakerDishesM() {
               <>
 
                 {post.place == "freezer" ? (
-                  <div className="lis" key={post.place}>
+                  <div className="lis" key={post.id}>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -122,11 +118,11 @@ export default function ListMakerDishesM() {
               <>
 
                 {post.place == "frishfridge" ? (
-                  <div className="lis" key={post.place}>
+                  <div className="lis" key={post.id}>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -142,11 +138,11 @@ export default function ListMakerDishesM() {
               <>
 
                 {post.place == "basement" ? (
-                  <div className="lis" key={post.place}>
+                  <div className="lis" key={post.id}>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>

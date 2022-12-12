@@ -5,7 +5,7 @@ import ListComponent from './ListComponent';
 export default function ListListOrder() {
 
   const [posts, setPosts] = useState([]);
-  const [isPosts, setIsPosts] = useState(true); // isP
+  const [setIsPosts] = useState(true); // isP
 
   useEffect(() => {
     async function getPosts() {

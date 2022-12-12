@@ -7,12 +7,13 @@ import { useEffect, useState } from "react";
 // import { endpoint } from "../utils/database_functions.js";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export default function ResultPage(props) {
+export default function ListMakerIngredients(props) {
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  const updatedList= useState([]);
 
   // Add/Remove checked item from list  
   const handleCheck = (event) => {
@@ -76,8 +77,8 @@ export default function ResultPage(props) {
       {/*Header*/}
       <div className='header'>
         <Link to="/dishes"><div><img src={Back} alt="back-button" to="/dishes" className='backbutton' /></div></Link>
-        <h1 className='headertitle'>Dishes</h1>
-        <ListDialog />
+        <h1 className='headertitle'>Ingredients</h1>
+        <ListDialog list={updatedList}/>
       </div>
       <form className="page" onSubmit={handleSubmit}>
 
