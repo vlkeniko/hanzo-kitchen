@@ -1,7 +1,7 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
-
+import { Toast } from 'react-toastify/dist/components';
 import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function ListMakerDishesM() {
+
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
@@ -24,12 +25,17 @@ export default function ListMakerDishesM() {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
-  // Setting user data to localStorage
-  localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
-  };
-
-/* var checkedlist = updatedList && posts;
-  console.log(checkedlist) */
+    // Setting user data to localStorage
+    localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
+    const showToastMessage = () => {
+      Toast.success('Success Notification !', {
+        position: Toast.POSITION.TOP_RIGHT
+      });
+      showToastMessage();
+    };
+  }
+  /* var checkedlist = updatedList && posts;
+    console.log(checkedlist) */
 
   useEffect(() => {
     async function getPosts() {
@@ -59,6 +65,7 @@ export default function ListMakerDishesM() {
       }
     })
   }
+
 
   return (
     <>
@@ -113,7 +120,7 @@ export default function ListMakerDishesM() {
             ))}
 
             <h1 className='goldtitle'>Fish fridge</h1>
-            
+
             {posts.map((post, index) => (
               <>
 
