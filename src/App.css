@@ -146,6 +146,7 @@ table {
   --white: #F7F7F7;
   --orange: #D69300;
   --red: #BE0903;
+  --gold:#D7BE95;
 }
 
 
@@ -526,4 +527,11 @@ input[type="checkbox"]:checked:after {
   background: none;
   border: 2px solid var(--orange);
 
+}
+
+.goldtitle{
+  font-size: 30px;
+  color:var(--gold);
+  padding-top: 30px;
+  padding-bottom: 10px;
 }

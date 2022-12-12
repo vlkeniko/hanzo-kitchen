@@ -50,7 +50,7 @@ export default function ListMakerDishesM() {
   }, []);
 
 
-//This thing creates an o
+  //This thing creates an o
   function handleSubmit(e) {
     e.preventDefault();
     navigate('/ingredients', {
@@ -60,7 +60,7 @@ export default function ListMakerDishesM() {
     })
   }
 
-  
+
 
   return (
     <>
@@ -74,85 +74,87 @@ export default function ListMakerDishesM() {
       <form className="page" onSubmit={handleSubmit}>
         {isPosts ? (
           <div className="list-container">
-           
+
+
+            <h1 className='goldtitle'>Fridge</h1>
+            {posts.map((post, index) => (
+              <>
+
+                {post.place == "fridge" ? (
+                  <div className="lis" key={post.place}>
+                    <section className="listitem">
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+
+            <h1 className='goldtitle'>Freezer</h1>
+            <p>Dont forget to defrost ingredients for tomorrow!</p>
+            {posts.map((post, index) => (
+              <>
+
+                {post.place == "freezer" ? (
+                  <div className="lis" key={post.place}>
+                    <section className="listitem">
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+
+            <h1 className='goldtitle'>Fish fridge</h1>
             
-           <h1>Fridge</h1>
             {posts.map((post, index) => (
-               <>
-               
-               {post.place == "fridge" ? (
-              <div className="lis" key={post.place}>
-                <section className="listitem">
-                  <p>{post.name}</p>
-                  <label className="container">
-                    <input type="checkbox" value={index} onChange={handleCheck} />
-                    <span className="checkmark"></span>
-                  </label>
-                </section>
-              </div>
-               ) : (
-                ""
-              )}
+              <>
+
+                {post.place == "frishfridge" ? (
+                  <div className="lis" key={post.place}>
+                    <section className="listitem">
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
               </>
             ))}
 
-<h1>Freezer</h1>
+            <h1 className='goldtitle'>Basement</h1>
             {posts.map((post, index) => (
-               <>
-               
-               {post.place == "freezer" ? (
-              <div className="lis" key={post.place}>
-                <section className="listitem">
-                  <p>{post.name}</p>
-                  <label className="container">
-                    <input type="checkbox" value={index} onChange={handleCheck} />
-                    <span className="checkmark"></span>
-                  </label>
-                </section>
-              </div>
-               ) : (
-                ""
-              )}
-              </>
-            ))}
-           
-           <h1>Fish fridge</h1>
-            {posts.map((post, index) => (
-               <>
-               
-               {post.place == "frishfridge" ? (
-              <div className="lis" key={post.place}>
-                <section className="listitem">
-                  <p>{post.name}</p>
-                  <label className="container">
-                    <input type="checkbox" value={index} onChange={handleCheck} />
-                    <span className="checkmark"></span>
-                  </label>
-                </section>
-              </div>
-               ) : (
-                ""
-              )}
-              </>
-            ))}
+              <>
 
-<h1>Basement</h1>
-            {posts.map((post, index) => (
-               <>
-               
-               {post.place == "basement" ? (
-              <div className="lis" key={post.place}>
-                <section className="listitem">
-                  <p>{post.name}</p>
-                  <label className="container">
-                    <input type="checkbox" value={index} onChange={handleCheck} />
-                    <span className="checkmark"></span>
-                  </label>
-                </section>
-              </div>
-               ) : (
-                ""
-              )}
+                {post.place == "basement" ? (
+                  <div className="lis" key={post.place}>
+                    <section className="listitem">
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={index} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
               </>
             ))}
           </div>

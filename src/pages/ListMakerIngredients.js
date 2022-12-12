@@ -81,23 +81,86 @@ export default function ResultPage(props) {
 
         {isPosts ? (
           <div className="list-container">
+            <h1 className='goldtitle'>Basement</h1>
             {posts.map((post, index) => (
-              <div key={index}>
+              <>
+                {post.place == "basement" ? (
+                  <div key={index}>
+                    <section className="listitem">
+                     
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={post.name} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
 
-                <section className="listitem">
-                 
-            
-                <p>{post.id}</p>
-             
-                  <p>{post.name}</p>
-
-                  <label className="container">
-                    <input type="checkbox" value={post.name} onChange={handleCheck} />
-                    <span className="checkmark"></span>
-                  </label>
-                </section>
-              </div>
             ))}
+            <h1 className='goldtitle'>Fridge</h1>
+            {posts.map((post, index) => (
+              <>
+                {post.place == "fridge" ? (
+                  <div key={index}>
+                    <section className="listitem">
+                   
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={post.name} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+
+            ))}
+            <h1 className='goldtitle'>Freezer</h1>
+            {posts.map((post, index) => (
+              <>
+                {post.place == "freezer" ? (
+                  <div key={index}>
+                    <section className="listitem">
+                      
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={post.name} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+            <h1 className='goldtitle'>Fish fridge</h1>
+            {posts.map((post, index) => (
+              <>
+                {post.place == "fish fridge" ? (
+                  <div key={index}>
+                    <section className="listitem">
+                      
+                      <p>{post.name}</p>
+                      <label className="container">
+                        <input type="checkbox" value={post.name} onChange={handleCheck} />
+                        <span className="checkmark"></span>
+                      </label>
+                    </section>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+
+
           </div>
         ) : (
           <p>Nothing to show</p>
