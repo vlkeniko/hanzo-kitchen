@@ -76,7 +76,7 @@ function getCurrentDate(separator='/'){
   return (
     <div>
       <div className='header'>
-        <Link className='backbutton' navigate="/ingredients" ><div><img src={Back} alt="back-button" /></div></Link>
+        <Link className='backbutton' to="/ingredients" ><div><img src={Back} alt="back-button" navigate="/ingredients"/></div></Link>
         <h1 className='headertitle'>Overview</h1>
       </div>
       <div className='exportdoc' >

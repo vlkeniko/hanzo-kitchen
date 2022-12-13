@@ -54,7 +54,7 @@ function getCurrentDate(separator='/'){
     const formData = {
       name: username,
       message: usermessage,
-      ingredientslist: location.state.dishlist,
+      disheslist: location.state.dishlist,
       date: getCurrentDate()
       
     }
@@ -69,7 +69,7 @@ function getCurrentDate(separator='/'){
     });
     const data = await response.json();
     console.log(data);
-    navigate("/lists");
+    navigate("/ingredients");
     showToastSave();
   }
 
@@ -81,7 +81,7 @@ function getCurrentDate(separator='/'){
       </div>
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
-          <h1 className='title'>Ingredients</h1>
+          <h1 className='title'>Dishes</h1>
           {isPosts ? (
             <div className='exportdoc' ref={ref}>
               {posts.map((post, index) => (
@@ -89,6 +89,7 @@ function getCurrentDate(separator='/'){
                   <p className='exportlistitem'>{post}</p>
                 </div>
               ))}
+
               <div className='exportform'>
                 <label className='exportformlabel'>Comment</label>
                 <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)} className='exportformcommentfield'></textarea>

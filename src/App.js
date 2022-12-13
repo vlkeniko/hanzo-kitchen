@@ -9,7 +9,7 @@ import ListMakerDishesM from './pages/ListMakerDishesM';
 import PreplistsOrderlists from './pages/PreplistsOrderlists';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Preplist from "./pages/Preplist"
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       <Route path="/ingredients" element={<ListMakerIngredients/>} />
       <Route path="/construction" element={<Construction/>} />
       <Route path="/lists" element={<PreplistsOrderlists/>} />
+      <Route path="/preplist" element={<Preplist/>} />
       <Route path="/overview" element={<Overview/>} />
       <Route path="/" element={<HomePage/>} />
  
@@ -34,7 +35,7 @@ function App() {
             <ToastContainer 
 position="top-center"
 autoClose={300}
-limit={1}
+limit={0}
 hideProgressBar={true}
 newestOnTop={true}
 closeOnClick

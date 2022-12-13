@@ -53,6 +53,8 @@ export default function ListMakerDishesM() {
         dishlist: checked
       }
     })
+
+
     /* e.preventDefault();
     const formData = {
       dishlist: JSON.stringify(location.state.dishlist, 2)
@@ -71,6 +73,7 @@ export default function ListMakerDishesM() {
     const data = await response.json();
     console.log(data);
  */
+    
   }
 
 
@@ -103,7 +106,7 @@ export default function ListMakerDishesM() {
     <>
       {/*Header*/}
       <div className='header'>
-        <Link to="/lists"><div><img src={Back} alt="back-button" navigate="/lists"  className='backbutton' /></div></Link>
+        <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
         <ListDialog list={updatedList} />
       </div>
