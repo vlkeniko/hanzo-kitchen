@@ -36,24 +36,13 @@ export default function ListListOrder() {
       <div className='lists-container'>
         {posts.map((post, index) => (
           <>
+ 
             <div className="listscard" key={post.id}>
+            <p>{post.date}</p><br/>
               <p>Made by: {post.name}</p><br/>
               <p>Comment: {post.message}</p><br/>
               <p> {post.ingredientslist.map((ingredientslist) => <li>{ingredientslist}</li>)}</p>
               {/*Showing the list nicely*/}
-       {/*        {
-              posts.map((posts, index) => (
-              <ul>
-                {
-                  <li className="lis" key={posts.ingredientslist.id}>
-                    <section className="listitem">
-                      <p>{posts.ingredientslist}</p>
-                    </section>
-                  </li>
-                }
-              </ul>
-            ))} */}
-           
             </div>
           </>
         ))}

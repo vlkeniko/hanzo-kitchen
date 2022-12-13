@@ -36,12 +36,27 @@ export default function Overview() {
     getPosts();
   }, []);
 
+
+//To get the current date in the right format
+function getCurrentDate(separator='/'){
+
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    
+    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+    }
+
+
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = {
       name: username,
       message: usermessage,
-      ingredientslist: location.state.ingredientslist
+      ingredientslist: location.state.ingredientslist,
+      date: getCurrentDate()
+      
     }
     const url = "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/Savedlists.json";
     const response = await fetch(url, {
@@ -80,7 +95,8 @@ export default function Overview() {
                 <label className='exportformlabel'>Name</label>
                 <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)} className='exportformnamefield' required></input>
                 <div className='submitbuttons'>
-                  <Pdf targetRef={ref} filename="code-example.pdf">
+                  {/*Save  lists with todays date*/}
+                  <Pdf targetRef={ref} filename={getCurrentDate()}>
                     {({ toPdf }) => <button className="exportformsubmit" onClick={toPdf}>Save PDF</button>}
                   </Pdf>
                   <button className='exportformsubmit'>Save list</button>
