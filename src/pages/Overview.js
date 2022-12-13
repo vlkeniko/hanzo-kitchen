@@ -1,17 +1,12 @@
 import React from 'react'
 import Back from '../pictures/back.svg'
 import { Link } from 'react-router-dom';
-/* import { Timestamp, collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage, db, auth } from "../firebaseConfig"
- */
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-// import { Navigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 import Pdf from "react-to-pdf";
-const ref = React.createRef();
+
 
 
 export default function Overview() {
@@ -27,7 +22,8 @@ export default function Overview() {
   const [usermessage, setMessage] = useState("");
   const [username, setName] = useState("");
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const ref = React.createRef();
 
   useEffect(() => {
     async function getPosts() {
@@ -56,8 +52,9 @@ export default function Overview() {
     });
     const data = await response.json();
     console.log(data);
+    navigate("/lists");
     showToastSave();
-    // Navigate ="/";
+    
   }
 
   return (
