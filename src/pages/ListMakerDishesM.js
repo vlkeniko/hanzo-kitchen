@@ -103,7 +103,7 @@ export default function ListMakerDishesM() {
     <>
       {/*Header*/}
       <div className='header'>
-        <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
+        <Link to="/lists"><div><img src={Back} alt="back-button" navigate="/lists"  className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
         <ListDialog list={updatedList} />
       </div>

@@ -63,7 +63,7 @@ export default function ListMakerComponents() {
     <div>
       {/*Header*/}
       <div className='header'>
-        <Link to="/list"><div><img src={Back} alt="back-button" to="/list"  className='backbutton'/></div></Link>
+        <Link to="/list"><div><img src={Back} alt="back-button" navigate="/list"   className='backbutton'/></div></Link>
         <h1  className='headertitle'>Dishes</h1>
         <ListDialog/>
       </div>

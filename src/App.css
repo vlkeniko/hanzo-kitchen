@@ -591,5 +591,46 @@ input[type="checkbox"]:checked:after {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+}
 
+.home{
+  border: 2px solid var(--orange);
+  border-radius: 35px;
+  background: none;
+  color: var(--orange);
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.constructioncontent{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 60px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.asd{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 60px;
+
+}
+
+.unavailable1{
+ color: var(--gold);
+ font-size: 35px;
+}
+
+.unavailable2{
+  color: var(--gold);
+  font-size: 20px;
 }

@@ -84,7 +84,7 @@ export default function ListMakerIngredients(props) {
     <>
       {/*Header*/}
       <div className='header'>
-        <Link to="/dishes"><div><img src={Back} alt="back-button" to="/dishes" className='backbutton' /></div></Link>
+        <Link to="/dishes"><div><img src={Back} alt="back-button" navigate="/dishes"  className='backbutton' /></div></Link>
         <h1 className='headertitle'>Ingredients</h1>
         <ListDialog list={updatedList}/>
       </div>

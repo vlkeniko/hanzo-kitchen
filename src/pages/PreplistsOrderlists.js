@@ -10,7 +10,7 @@ export default function PreplistsOrderlists() {
   return (
     <div>
        <div className='header'>
-       <Link className='backbutton' to="/"><div><img src={Back} alt="back-button" to="/" /></div></Link>
+       <Link className='backbutton' to="/"><div><img src={Back} alt="back-button" navigate="/"/></div></Link>
         <h1  className='headertitle'>Lists</h1>
       </div>
       <TabListList/>

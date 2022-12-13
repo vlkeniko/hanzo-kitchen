@@ -19,7 +19,7 @@ export default function Nav() {
         </div> */}
 
         <div className='navlink-container'>
-          <Link className="home sendconvertbutton" to="/" style={{padding:"8px"}}>Home</Link>
+          <Link className="home" to="/">Home</Link>
         </div>
 
     
