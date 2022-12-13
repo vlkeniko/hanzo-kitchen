@@ -1,5 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Back from "../pictures/back.svg"
 
 
 export default function ListListOrder() {
@@ -26,23 +30,37 @@ export default function ListListOrder() {
     getPosts();
   }, []);
 
-  return (
+  //To get the current date in the right format
+  /* function getCurrentDate(separator='/'){
+  
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    
+    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+    } */
 
+  return (
     <div>
-      <h1>Order lists</h1>
-      <h3>Today</h3>
-      <div className='nolist'><p>No order list has been made today.</p></div>
-      <h3>This week</h3>
+      {/* <div className='nolist'><p>No order list has been made today.</p></div> */}
       <div className='lists-container'>
         {posts.map((post, index) => (
           <>
- 
-            <div className="listscard" key={post.id}>
-            <p>{post.date}</p><br/>
-              <p>Made by: {post.name}</p><br/>
-              <p>Comment: {post.message}</p><br/>
-              <p> {post.ingredientslist.map((ingredientslist) => <li>{ingredientslist}</li>)}</p>
-              {/*Showing the list nicely*/}
+            <div className='accordion'>
+              <Accordion>
+                <AccordionSummary
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>{post.date}</p>
+                  <p className="name"> - {post.name}</p><br />
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p className="comment">Comment: {post.message}</p><br />
+                  <p className="postlist"> {post.ingredientslist.map((ingredientslist) => <li className="postlistitem">{ingredientslist}</li>)}</p>
+                </AccordionDetails>
+              </Accordion>
             </div>
           </>
         ))}
