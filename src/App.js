@@ -31,7 +31,19 @@ function App() {
  
     </Routes>
     
-            <ToastContainer />
+            <ToastContainer 
+position="top-center"
+autoClose={300}
+limit={1}
+hideProgressBar={true}
+newestOnTop={true}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"/>
+
     </main>
    
   );
