@@ -97,7 +97,7 @@ function getCurrentDate(separator='/'){
                 <div className='submitbuttons'>
                   {/*Save  lists with todays date*/}
                   <Pdf targetRef={ref} filename={getCurrentDate()}>
-                    {({ toPdf }) => <button className="exportformsubmit" onClick={toPdf}>Save PDF</button>}
+                    {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Save PDF</button>}
                   </Pdf>
                   <button className='exportformsubmit'>Save list</button>
                 </div>
@@ -110,13 +110,7 @@ function getCurrentDate(separator='/'){
           )}
 
         </form>
-
       </div>
-
-
-
-
-
     </div>
   )
 }

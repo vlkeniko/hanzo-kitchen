@@ -53,11 +53,11 @@ export default function ListListOrder() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p>{post.date}</p>
+                  <p className="date">{post.date}</p>
                   <p className="name"> - {post.name}</p><br />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment">Comment: {post.message}</p><br />
+                  <p className="comment">{post.message}</p><br />
                   <p className="postlist"> {post.ingredientslist.map((ingredientslist) => <li className="postlistitem">{ingredientslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>

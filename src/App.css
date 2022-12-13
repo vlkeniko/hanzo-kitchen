@@ -452,20 +452,23 @@ body {
 }
 
 .exportformsubmit {
+  background: var(--orange);
+  color: var(--white);
   border: 2px solid var(--orange);
   border-radius: 30px;
-  background: none;
-  color: var(--orange);
   font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 15px;
   padding: 5px;
-
 }
 
 .exportformsubmit:active {
-  background: var(--orange);
-  color: var(--white);
+
+
+  
+  background: none;
+  color: var(--orange);
+  
 }
 
 .sendconvertbutton {
@@ -567,4 +570,26 @@ input[type="checkbox"]:checked:after {
   width: 80%;
   margin-lefT: auto;
   margin-right: auto;
+}
+
+.name{
+  font-size: 20px;
+}
+
+.date{
+  font-size: 20px;
+  
+}
+
+.comment{
+  font-size: 15px;
+  color: var(--red);
+}
+
+.navlink-container{
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+
 }
