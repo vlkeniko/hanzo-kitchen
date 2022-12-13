@@ -178,7 +178,7 @@ body {
 
 .headertitle {
   position: absolute;
-  width: 390px;
+  width: 100%;
   font-weight: bold;
   text-align: center;
   margin-left: auto;
@@ -189,6 +189,9 @@ body {
 .listicon {
   width: 28px;
   height: auto;
+  border: 0;
+  margin-top: -10px;
+
 }
 
 .backbutton {

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import listicon from '../pictures/list-icon-blue.svg';
@@ -62,7 +61,7 @@ export default function SimpleDialogDemo() {
     <div>
  
       <br />
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button onClick={handleClickOpen}>
         <img className='listicon' src={listicon} alt="listicon" />
       </Button>
       <SimpleDialog
