@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
+import { useLocation} from "react-router-dom";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,15 +16,16 @@ export default function ListMakerDishesM() {
   const [checked, setChecked] = useState([]);
   const updatedList = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const showToastAdd = () => {
-    toast.success("${post.name} " + 'was added to the preplist!', {
+    toast.success("Dish " + 'was added to the preplist!', {
         position: toast.POSITION.TOP_RIGHT
     });
   }
 
   const showToastRemove = () => {
-    toast.success("${post.name} " + 'was removed from the preplist!', {
+    toast.success("Dish " + 'was removed from the preplist!', {
         position: toast.POSITION.TOP_RIGHT
     });
   }
@@ -42,8 +44,35 @@ export default function ListMakerDishesM() {
     localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
   
   }
-  /* var checkedlist = updatedList && posts;
-    console.log(checkedlist) */
+
+  async function handleSubmit(e) {
+
+    e.preventDefault();
+    navigate('/ingredients', {
+      state: {
+        dishlist: checked
+      }
+    })
+    /* e.preventDefault();
+    const formData = {
+      dishlist: JSON.stringify(location.state.dishlist, 2)
+    }
+    const url = "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/SavedPrep.json";
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(formData, 2),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      
+    });
+
+    const data = await response.json();
+    console.log(data);
+ */
+  }
+
 
   useEffect(() => {
     async function getPosts() {
@@ -64,15 +93,10 @@ export default function ListMakerDishesM() {
     getPosts();
   }, []);
 
-  //This thing creates an o
+/*   //This thing creates an o
   function handleSubmit(e) {
-    e.preventDefault();
-    navigate('/ingredients', {
-      state: {
-        dishlist: checked
-      }
-    })
-  }
+    
+  } */
 
 
   return (

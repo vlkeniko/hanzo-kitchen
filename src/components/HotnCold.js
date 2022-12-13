@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import Fire from "../pictures/Fire.png"
+import Snow from "../pictures/Snow.png"
 
 export default function HotnCold() {
 
@@ -9,11 +10,14 @@ export default function HotnCold() {
         <div className='hot-n-cold'>
             <Link to="/construction">
                 <div className='hot-n-cold-card'>
+                <img src={Fire} alt="Snow" style={{width:"30px", height: "auto", paddingBottom: "15px",}}/>
                     <h1 className='hot-n-cold-label'>Hot Section</h1>
+                    
                 </div>
             </Link>
             <Link to="/lists">
                 <div className='hot-n-cold-card'>
+                <img src={Snow} alt="Snow" style={{width:"30px", height: "auto", paddingBottom: "15px",}}/>
                     <h1 className='hot-n-cold-label'>Cold Section</h1>
                 </div>
             </Link>

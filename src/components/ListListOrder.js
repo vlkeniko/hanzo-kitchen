@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import ListComponent from './ListComponent';
+
 
 export default function ListListOrder() {
 
@@ -26,7 +26,6 @@ export default function ListListOrder() {
     getPosts();
   }, []);
 
-
   return (
 
     <div>
@@ -40,7 +39,21 @@ export default function ListListOrder() {
             <div className="listscard" key={post.id}>
               <p>Made by: {post.name}</p><br/>
               <p>Comment: {post.message}</p><br/>
-              <ListComponent orderlist={post.ingredientslist}/>
+              <p> {post.ingredientslist.map((ingredientslist) => <li>{ingredientslist}</li>)}</p>
+              {/*Showing the list nicely*/}
+       {/*        {
+              posts.map((posts, index) => (
+              <ul>
+                {
+                  <li className="lis" key={posts.ingredientslist.id}>
+                    <section className="listitem">
+                      <p>{posts.ingredientslist}</p>
+                    </section>
+                  </li>
+                }
+              </ul>
+            ))} */}
+           
             </div>
           </>
         ))}
