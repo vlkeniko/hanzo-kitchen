@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Back from "../pictures/back.svg"
 
+import Delete from './Delete';
 
 export default function ListListOrder() {
 
@@ -55,6 +55,7 @@ export default function ListListOrder() {
                 >
                   <p className="date">{post.date}</p>
                   <p className="name"> - {post.name}</p><br />
+                  <Delete data={post}/>
                 </AccordionSummary>
                 <AccordionDetails>
                   <p className="comment">{post.message}</p><br />

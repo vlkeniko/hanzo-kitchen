@@ -29,6 +29,7 @@ export default function Overview() {
     async function getPosts() {
       if (location.state.ingredientslist.length > 0) {
         setPosts(location.state.ingredientslist);
+        sessionStorage.setItem("ingredientslist", JSON.stringify(location.state.ingredientslist))
       } else {
         setIsPosts(false);
       }

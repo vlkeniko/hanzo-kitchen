@@ -7,18 +7,15 @@ import ListMakerIngredients from './pages/ListMakerIngredients';
 import Overview from './pages/Overview';
 import ListMakerDishesM from './pages/ListMakerDishesM';
 import PreplistsOrderlists from './pages/PreplistsOrderlists';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Preplist from "./pages/Preplist"
 
 
 function App() {
 
-  const showToastMessage = () => {
-    toast.success('Success Notification !', {
-        position: toast.POSITION.TOP_RIGHT
-    });
-};
+
+
   return (
     <main>
     <Routes>

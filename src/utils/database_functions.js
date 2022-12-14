@@ -1,5 +1,5 @@
 export let endpoint =
-  "https://hanzolist-b6cc3-default-rtdb.europe-west1.firebasedatabase.app/";
+  "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/";
 
   export async function getFromEndpoint(url) {
     const response = await fetch(url);
