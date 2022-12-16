@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import ListDialog from '../components/ListDialog';
+
 import Back from '../pictures/back.svg';
 import BigPlus from '../pictures/arrow.svg';
 import { useEffect, useState } from "react";
@@ -27,7 +27,7 @@ export default function ListMakerIngredients(props) {
     }
     setChecked(updatedList);
         // Setting user data to localStorage
-        localStorage.setItem("updatedListIngredients", JSON.stringify(updatedList));
+        sessionStorage.setItem("ingredientslist", JSON.stringify(location.state.ingredientslist))
   };
 
 
@@ -86,7 +86,7 @@ export default function ListMakerIngredients(props) {
       <div className='header'>
         <Link to="/dishes"><div><img src={Back} alt="back-button" navigate="/dishes"  className='backbutton' /></div></Link>
         <h1 className='headertitle'>Ingredients</h1>
-        <ListDialog list={updatedList}/>
+       
       </div>
       <form className="page" onSubmit={handleSubmit}>
 

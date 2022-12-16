@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Pdf from "react-to-pdf";
+import SimpleDialogDemo from '../components/ListDialog';
 
 
 
@@ -79,6 +80,7 @@ function getCurrentDate(separator='/'){
       <div className='header'>
         <Link className='backbutton' to="/ingredients" ><div><img src={Back} alt="back-button" navigate="/ingredients"/></div></Link>
         <h1 className='headertitle'>Overview</h1>
+        <SimpleDialogDemo></SimpleDialogDemo>
       </div>
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>

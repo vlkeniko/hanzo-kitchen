@@ -2,19 +2,19 @@ import React from 'react'
 import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import ListDialog from '../components/ListDialog';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
 import { useLocation} from "react-router-dom";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SimpleDialogDemo from '../components/ListDialog';
 
 export default function ListMakerDishesM() {
 
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
-  const updatedList = useState([]);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,7 +41,7 @@ export default function ListMakerDishesM() {
     }
     setChecked(updatedList);
     // Setting user data to localStorage
-    localStorage.setItem("updatedListDishes", JSON.stringify(updatedList));
+    sessionStorage.setItem("dishlist", JSON.stringify(location.state.dishlist))
   
   }
 
@@ -108,7 +108,6 @@ export default function ListMakerDishesM() {
       <div className='header'>
         <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
-        <ListDialog list={updatedList} />
       </div>
 
       <form className="page" onSubmit={handleSubmit}>

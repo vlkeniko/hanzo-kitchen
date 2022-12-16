@@ -331,6 +331,11 @@ body {
   height: 800px;
 }
 
+.listicon{
+  width: 35px;
+  height: auto;
+}
+
 /*Components List*/
 
 .title {
