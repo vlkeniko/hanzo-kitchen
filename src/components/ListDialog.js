@@ -6,8 +6,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import Delete from "../components/Delete"
-
 import listicon from '../pictures/list-icon-blue.svg';
 
 function SimpleDialog(props) {

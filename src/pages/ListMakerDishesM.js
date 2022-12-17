@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -33,10 +32,14 @@ export default function ListMakerDishesM() {
   const handleCheck = (event) => {
     var updatedList = [...checked];
     if (event.target.checked) {
+      //The checked item is added to the updatedList
       updatedList = [...checked, event.target.value];
+      //Toast if added
       showToastAdd();
     } else {
+      //The un-checked item is removed to the updatedList
       updatedList.splice(checked.indexOf(event.target.value), 1);
+      //Toast if removed
       showToastRemove();
     }
     setChecked(updatedList);

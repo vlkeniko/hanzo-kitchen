@@ -1,8 +1,7 @@
 import React from 'react'
-
 import TabListList from '../components/TabListList'
 import Back from '../pictures/back.svg'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import BigPlus from '../pictures/big-plus.svg'
 
 
