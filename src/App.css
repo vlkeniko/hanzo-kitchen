@@ -400,6 +400,8 @@ body {
   margin: 20px;
 }
 
+/*Overview page*/
+
 .exportdoc {
   background-color: var(--white);
   padding: 5px;
@@ -489,12 +491,8 @@ body {
 }
 
 .exportformsubmit:active {
-
-
-  
   background: none;
   color: var(--orange);
-  
 }
 
 .sendconvertbutton {
@@ -558,12 +556,8 @@ input[type="checkbox"]:checked:after {
 
 }
 
-.goldtitle{
-  font-size: 30px;
-  color:var(--gold);
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
+
+/*Preplists & Orderlists page.*/
 
 .listscard{
   padding: 15px;
@@ -604,12 +598,33 @@ input[type="checkbox"]:checked:after {
 
 .date{
   font-size: 20px;
-  
 }
 
 .comment{
   font-size: 15px;
   color: var(--red);
+}
+
+.deletex{
+  position: absolute;
+  padding-top: 2px;
+  width: 25px;
+  height: 25px;
+  border-radius: 30px;
+  background-color: var(--red);
+  text-align: center;
+  font-weight: bold;
+  color: var(--white);
+  right: 15px;
+}
+
+/*Construction page*/
+
+.goldtitle{
+  font-size: 30px;
+  color:var(--gold);
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .navlink-container{
@@ -661,15 +676,3 @@ input[type="checkbox"]:checked:after {
   font-size: 20px;
 }
 
-.deletex{
-  position: absolute;
-  padding-top: 2px;
-  width: 25px;
-  height: 25px;
-  border-radius: 30px;
-  background-color: var(--red);
-  text-align: center;
-  font-weight: bold;
-  color: var(--white);
-  right: 15px;
-}
