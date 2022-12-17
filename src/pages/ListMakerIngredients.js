@@ -15,15 +15,17 @@ export default function ListMakerIngredients(props) {
   const [checked, setChecked] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  const updatedList= useState([]);
+  // const updatedList= useState([]);
 
   // Add/Remove checked item from list  
   const handleCheck = (event) => {
     var updatedList = [...checked];
     if (event.target.checked) {
       updatedList = [...checked, event.target.value];
+      toastAdd();
     } else {
       updatedList.splice(checked.indexOf(event.target.value), 1);
+      toastRemove();
     }
     setChecked(updatedList);
         // Setting user data to localStorage
@@ -74,11 +76,18 @@ export default function ListMakerIngredients(props) {
     })
   }
 
-  const showToastMessage = () => {
-    toast.success('Success Notification !', {
+  const toastAdd = () => {
+    toast.success('Ingredient was added to the orderlist', {
         position: toast.POSITION.TOP_RIGHT
     });
   }
+
+  const toastRemove = () => {
+    toast.success('Ingredient was added to the orderlist', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+  }
+
 
   return (
     <>
@@ -86,7 +95,6 @@ export default function ListMakerIngredients(props) {
       <div className='header'>
         <Link to="/dishes"><div><img src={Back} alt="back-button" navigate="/dishes"  className='backbutton' /></div></Link>
         <h1 className='headertitle'>Ingredients</h1>
-       
       </div>
       <form className="page" onSubmit={handleSubmit}>
 

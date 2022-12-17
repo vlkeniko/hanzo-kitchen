@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
-import { useLocation} from "react-router-dom";
+
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SimpleDialogDemo from '../components/ListDialog';
+
 
 export default function ListMakerDishesM() {
 
@@ -16,16 +16,16 @@ export default function ListMakerDishesM() {
   const [checked, setChecked] = useState([]);
 
   const navigate = useNavigate();
-  const location = useLocation();
+
 
   const showToastAdd = () => {
-    toast.success("Dish " + 'was added to the preplist!', {
+    toast.success('Dish was added to the preplist!', {
         position: toast.POSITION.TOP_RIGHT
     });
   }
 
   const showToastRemove = () => {
-    toast.success("Dish " + 'was removed from the preplist!', {
+    toast.success( 'Dish was removed from the preplist!', {
         position: toast.POSITION.TOP_RIGHT
     });
   }
@@ -40,9 +40,6 @@ export default function ListMakerDishesM() {
       showToastRemove();
     }
     setChecked(updatedList);
-    // Setting user data to localStorage
-    sessionStorage.setItem("dishlist", JSON.stringify(location.state.dishlist))
-  
   }
 
   async function handleSubmit(e) {
@@ -179,7 +176,7 @@ export default function ListMakerDishesM() {
               <>
 
                 {post.place == "basement" ? (
-                  <div className="lis" key={post.id}>
+                  <div className="lis" key={post.id }>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">
