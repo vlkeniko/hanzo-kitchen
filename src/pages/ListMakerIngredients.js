@@ -96,8 +96,9 @@ export default function ListMakerIngredients(props) {
         <Link to="/dishes"><div><img src={Back} alt="back-button" navigate="/dishes"  className='backbutton' /></div></Link>
         <h1 className='headertitle'>Ingredients</h1>
       </div>
+      {/*Header end*/}
+      
       <form className="page" onSubmit={handleSubmit}>
-
         {isPosts ? (
           <div className="list-container">
             <h1 className='goldtitle'>Basement</h1>

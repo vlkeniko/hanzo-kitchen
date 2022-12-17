@@ -37,16 +37,16 @@ export default function Overview() {
   }, []);
 
 
-//To get the current date in the right format
-function getCurrentDate(separator='/'){
+  //To get the current date in the right format
+  function getCurrentDate(separator = '/') {
 
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-    
-    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-    }
+
+    return `${date}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${year}`
+  }
 
 
   async function handleSubmit(e) {
@@ -56,7 +56,7 @@ function getCurrentDate(separator='/'){
       message: usermessage,
       disheslist: location.state.dishlist,
       date: getCurrentDate()
-      
+
     }
     const url = "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/Preplist.json";
     const response = await fetch(url, {
@@ -74,11 +74,15 @@ function getCurrentDate(separator='/'){
   }
 
   return (
+
     <div>
+      {/*Header*/}
       <div className='header'>
-        <Link className='backbutton' navigate="/dishes" ><div><img src={Back} alt="back-button" navigate="/dishes"/></div></Link>
+        <Link className='backbutton' navigate="/dishes" ><div><img src={Back} alt="back-button" navigate="/dishes" /></div></Link>
         <h1 className='headertitle'>Overview</h1>
       </div>
+      {/*Header end*/}
+
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
           <h1 className='title'>Dishes</h1>

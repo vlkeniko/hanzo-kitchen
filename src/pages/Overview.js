@@ -77,11 +77,14 @@ function getCurrentDate(separator='/'){
 
   return (
     <div>
+      {/*Header*/}
       <div className='header'>
         <Link className='backbutton' to="/ingredients" ><div><img src={Back} alt="back-button" navigate="/ingredients"/></div></Link>
         <h1 className='headertitle'>Overview</h1>
         <SimpleDialogDemo></SimpleDialogDemo>
       </div>
+      {/*Header end*/}
+      
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
           <h1 className='title'>Ingredients</h1>

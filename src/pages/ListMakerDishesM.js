@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
 
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -20,13 +20,13 @@ export default function ListMakerDishesM() {
 
   const showToastAdd = () => {
     toast.success('Dish was added to the preplist!', {
-        position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT
     });
   }
 
   const showToastRemove = () => {
-    toast.success( 'Dish was removed from the preplist!', {
-        position: toast.POSITION.TOP_RIGHT
+    toast.success('Dish was removed from the preplist!', {
+      position: toast.POSITION.TOP_RIGHT
     });
   }
   // Add/Remove checked item from list
@@ -70,7 +70,7 @@ export default function ListMakerDishesM() {
     const data = await response.json();
     console.log(data);
  */
-    
+
   }
 
 
@@ -93,10 +93,10 @@ export default function ListMakerDishesM() {
     getPosts();
   }, []);
 
-/*   //This thing creates an o
-  function handleSubmit(e) {
-    
-  } */
+  /*   //This thing creates an o
+    function handleSubmit(e) {
+      
+    } */
 
 
   return (
@@ -106,6 +106,7 @@ export default function ListMakerDishesM() {
         <Link to="/lists"><div><img src={Back} alt="back-button" to="/lists" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Dishes</h1>
       </div>
+      {/*Header end*/}
 
       <form className="page" onSubmit={handleSubmit}>
         {isPosts ? (
@@ -176,7 +177,7 @@ export default function ListMakerDishesM() {
               <>
 
                 {post.place == "basement" ? (
-                  <div className="lis" key={post.id }>
+                  <div className="lis" key={post.id}>
                     <section className="listitem">
                       <p>{post.name}</p>
                       <label className="container">

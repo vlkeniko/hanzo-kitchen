@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom'
 export default function Construction() {
   return (
     <div>
+{/*Header*/}
       <div className='header'>
         <Link to="/"><div><img src={Back} alt="back-button" navigate="/" className='backbutton' /></div></Link>
         <h1 className='headertitle'>Oh no!</h1>
       </div>
+{/*Header end*/}
+
       <div className="constructioncontent">
         <img className='asd' src={Error} alt="back-button" />
         <h1 className='unavailable1'>This page is unavailable</h1>

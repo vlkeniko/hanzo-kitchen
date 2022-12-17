@@ -63,13 +63,13 @@ export default function ListMakerComponents() {
     <div>
       {/*Header*/}
       <div className='header'>
-        <Link to="/list"><div><img src={Back} alt="back-button" navigate="/list"   className='backbutton'/></div></Link>
-        <h1  className='headertitle'>Dishes</h1>
-        <ListDialog/>
+        <Link to="/list"><div><img src={Back} alt="back-button" navigate="/list" className='backbutton' /></div></Link>
+        <h1 className='headertitle'>Dishes</h1>
+        <ListDialog />
       </div>
+      {/*Header end*/}
 
       {/*Showing the dishes from the database*/}
-
       <div className='list-container'>
         <div>Fridge</div>
         {components1.map((component1, i) => {
@@ -118,7 +118,7 @@ export default function ListMakerComponents() {
           );
         })}
       </div>
-      <Link to="/ingredients"><img src={BigPlus} alt="BigPlus" className="bigplusimage"/></Link>
+      <Link to="/ingredients"><img src={BigPlus} alt="BigPlus" className="bigplusimage" /></Link>
     </div>
 
 
