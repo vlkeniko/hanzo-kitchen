@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Fire from "../pictures/Fire.png"
-import Snow from "../pictures/Snow.png"
+import Fire from "../pictures/fire.png"
+import Snow from "../pictures/snow.png"
 
 export default function HotnCold() {
 
