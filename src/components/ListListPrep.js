@@ -31,7 +31,7 @@ export default function ListListOrder() {
   }, []);
 
   //To get the current date in the right format
-  /* function getCurrentDate(separator='/'){
+   function getCurrentDate(separator='/'){
   
     let newDate = new Date()
     let date = newDate.getDate();
@@ -39,7 +39,7 @@ export default function ListListOrder() {
     let year = newDate.getFullYear();
     
     return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-    } */
+    } 
 
   return (
     <div>

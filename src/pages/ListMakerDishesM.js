@@ -3,19 +3,21 @@ import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import BigPlus from '../pictures/arrow.svg'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Pdf from "react-to-pdf";
 
 export default function ListMakerDishesM() {
 
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
-
+  const location = useLocation();
   const navigate = useNavigate();
-
+  const [username, setName] = useState("");
+  const [usermessage, setMessage] = useState("");
+  const ref = React.createRef();
 
   const showToastAdd = () => {
     toast.success('Dish was added to the preplist!', {
@@ -28,8 +30,20 @@ export default function ListMakerDishesM() {
       position: toast.POSITION.TOP_RIGHT
     });
   }
+
+  function getCurrentDate(separator='/'){
+
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    
+    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+    }
+
   // Add/Remove checked item from list
   const handleCheck = (event) => {
+
     var updatedList = [...checked];
     if (event.target.checked) {
       //The checked item is added to the updatedList
@@ -45,17 +59,28 @@ export default function ListMakerDishesM() {
     setChecked(updatedList);
   }
 
-  async function handleSubmit(e) {
+  // Generate string of checked items
+  const checkedPosts = checked.length
+    ? checked.reduce((total, post) => {
+      return total + ", " + JSON.parse(post).name;
+    })
+    : "";
 
+  // Return classes based on whether item is checked
+  var isChecked = (post) =>
+    checked.includes(post) ? "checked-post" : "not-checked-post";
+
+  async function handleSubmit(e) {
     e.preventDefault();
     navigate('/ingredients', {
       state: {
         dishlist: checked
       }
+
     })
 
 
-    /* e.preventDefault();
+ e.preventDefault();
     const formData = {
       dishlist: JSON.stringify(location.state.dishlist, 2)
     }
@@ -72,7 +97,7 @@ export default function ListMakerDishesM() {
 
     const data = await response.json();
     console.log(data);
- */
+
 
   }
 
@@ -115,12 +140,13 @@ export default function ListMakerDishesM() {
         {isPosts ? (
           <div className="list-container">
             <h1 className='goldtitle'>Fridge</h1>
+            {/*Display only the items that are in the fridge*/}
             {posts.map((post, index) => (
               <>
                 {post.place == "fridge" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p>{post.name}</p>
+                      <p className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
                         <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
@@ -137,11 +163,11 @@ export default function ListMakerDishesM() {
             <p className='nolist'>Dont forget to defrost ingredients for tomorrow!</p>
             {posts.map((post, index) => (
               <>
-
+                {/*Display only the items that are in the freezer*/}
                 {post.place == "freezer" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p>{post.name}</p>
+                      <p className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
                         <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
@@ -158,11 +184,11 @@ export default function ListMakerDishesM() {
 
             {posts.map((post, index) => (
               <>
-
+                {/*Display only the items that are in the fish fridge. Typo in database, that is why i wrote frishfridge.*/}
                 {post.place == "frishfridge" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p>{post.name}</p>
+                      <p className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
                         <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
@@ -182,7 +208,7 @@ export default function ListMakerDishesM() {
                 {post.place == "basement" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p>{post.name}</p>
+                      <p className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
                         <input type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
@@ -194,12 +220,45 @@ export default function ListMakerDishesM() {
                 )}
               </>
             ))}
+
+            {/*Showing the clicked list items */}
+           
+
+         
           </div>
+
         ) : (
           <p>Nothing to show</p>
         )}
         <button className="submitbutton" ><img src={BigPlus} alt="BigPlus" className="bigplusimage" /></button>
       </form>
+
+      <form className="page" onSubmit={handleSubmit}>
+          <h1 className='title'>Ingredients</h1>
+          {isPosts ? (
+            <div className='exportdoc' ref={ref}>
+             <p className='listitem'> Items checked are: {checkedPosts} </p>
+              <div className='exportform'>
+                <label className='exportformlabel'>Comment</label>
+                <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)} className='exportformcommentfield'></textarea>
+                <label className='exportformlabel'>Name</label>
+                <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)} className='exportformnamefield' required></input>
+                <div className='submitbuttons'>
+                  {/*Save  lists with todays date*/}
+                  <Pdf targetRef={ref} filename={getCurrentDate()}>
+                    {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Save PDF</button>}
+                  </Pdf>
+                  <button className='exportformsubmit'>Save list</button>
+                </div>
+              </div>
+            </div>
+
+          ) : (
+            <p className='exportlistitem'>Nothing to show</p>
+
+          )}
+
+        </form>
     </>
 
   );
