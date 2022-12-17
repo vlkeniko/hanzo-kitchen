@@ -1,16 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
-import listicon  from '../pictures/list-icon-blue.svg';
+import Delete from "../components/Delete"
+
+import listicon from '../pictures/list-icon-blue.svg';
 
 function SimpleDialog(props) {
 
@@ -24,28 +22,19 @@ function SimpleDialog(props) {
   };
 
   return (
-    <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Ingredients</DialogTitle>
-      <List sx={{ pt: 0 }}>
+    <Dialog onClose={handleClose} open={open} className="dialog">
+      <div className='dialogheader'>
+      <DialogTitle className='dialogtitle' >Ingredients</DialogTitle>
+     
+      </div>
+      <div className='close' onClick={handleClose}>X</div>
+      <List className='dialogcontent'>
         {emails.map((email) => (
-          <ListItem button onClick={() => handleListItemClick(email)} key={email}>
-            <ListItemAvatar>
-              <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-          
-              </Avatar>
-            </ListItemAvatar>
+          <ListItem onClick={() => handleListItemClick(email)} key={email}>
             <ListItemText primary={email} />
           </ListItem>
         ))}
 
-        <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
-          <ListItemAvatar>
-            <Avatar>
-              
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Add account" />
-        </ListItem>
       </List>
     </Dialog>
   );
@@ -82,10 +71,10 @@ export default function SimpleDialogDemo() {
 
   return (
     <div>
-    
+
       <br />
       <Button onClick={handleClickOpen}>
-        <img className="listicon" src={listicon} alt="listicon"/>
+        <img className="listicon" src={listicon} alt="listicon" />
       </Button>
       <SimpleDialog
         selectedValue={selectedValue}
