@@ -28,19 +28,8 @@ export default function ListListOrder() {
     getPosts();
   }, []);
 
-  //To get the current date in the right format
-  /* function getCurrentDate(separator='/'){
-  
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-    
-    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-    } */
-
   return (
-    <div>
+    <div key="post">
       {/* <div className='nolist'><p>No order list has been made today.</p></div> */}
       <div className='lists-container'>
         {posts.map((post, index) => (
@@ -51,13 +40,13 @@ export default function ListListOrder() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p className="date" key="date">{post.date}</p>
-                  <p className="name" key="name"> - {post.name}</p><br />
+                  <p className="date" key="post.date">{post.date}</p>
+                  <p className="name" key="post.name"> - {post.name}</p><br />
                   {/* <Delete data={post}/> */}
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment" key="message" >{post.message}</p><br />
-                  <p className="postlist" > {post.ingredientslist.map((ingredientslist) => <li className="postlistitem" key="ingredientslist">{ingredientslist}</li>)}</p>
+                  <p className="comment" key="post.message" >{post.message}</p><br />
+                  <p className="postlist" > {post.ingredientslist.map((ingredientslist) => <li className="postlistitem" key="post.ingredientslist">{ingredientslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>
             </div>

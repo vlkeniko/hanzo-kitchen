@@ -213,7 +213,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 80px;
+  width: 60px;
   height: auto;
   cursor: pointer;
 }
@@ -538,7 +538,7 @@ body {
 .submitbuttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 16px;
   cursor: pointer;
 }
 

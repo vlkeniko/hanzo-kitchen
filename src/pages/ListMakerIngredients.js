@@ -8,9 +8,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import showCheckedItems from '../pages/ListMakerDishesM';
 
 export default function ListMakerIngredients(props) {
   const [posts, setPosts] = useState([]);
+  
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
   const [usermessage, setMessage] = useState("");
@@ -44,12 +46,10 @@ export default function ListMakerIngredients(props) {
   };
 
   function getCurrentDate(separator = '/') {
-
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-
     return `${date}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${year}`
   }
 
@@ -89,7 +89,7 @@ export default function ListMakerIngredients(props) {
   }
 
   const toastRemove = () => {
-    toast.success('Ingredient was added to the orderlist', {
+    toast.info('Ingredient was added to the orderlist', {
       position: toast.POSITION.TOP_RIGHT
     });
   }
@@ -148,11 +148,8 @@ export default function ListMakerIngredients(props) {
           <div className='exportdoc' ref={ref}>
              <h1 className="exporttitle">Prep list</h1>
              <p className="dates">{getCurrentDate()}</p>
-            {posts.map((post, index) => (
-              <div className="exportlistitemlist" key={index} >
-                <p className='exportlistitem'>{props.dishes}</p>
-              </div>
-            ))}
+           
+                <p className='dates' key="index">- Dishes -</p>
             <div className='exportform'>
               <label className='exportformlabel'>Comment</label>
               <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)} className='exportformcommentfield'></textarea>

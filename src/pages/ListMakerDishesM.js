@@ -6,7 +6,8 @@ import BigPlus from '../pictures/arrow.svg'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ListMakerIngredients from './ListMakerIngredients';
+
+
 
 export default function ListMakerDishesM(props) {
 
@@ -24,7 +25,7 @@ export default function ListMakerDishesM(props) {
   }
 
   const showToastRemove = () => {
-    toast.success('Dish was removed from the preplist!', {
+    toast.info('Dish was removed from the preplist!', {
       position: toast.POSITION.TOP_RIGHT
     });
   }
@@ -47,11 +48,15 @@ export default function ListMakerDishesM(props) {
     setChecked(updatedList);
   }
 
+  // Generate string of checked items
+  
+
 
 
   // Return classes based on whether item is checked
-  var isChecked = (post) =>
-    checked.includes(post) ? "checked-post" : "not-checked-post";
+  var isChecked = (item) =>
+    checked.includes(item) ? "checked-item" : "not-checked-item";
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -59,9 +64,6 @@ export default function ListMakerDishesM(props) {
       state: {
         dishlist: checked
       },
-      params: {
-        dishes: [...checked]
-      }
 
     })
   }
@@ -110,9 +112,9 @@ export default function ListMakerDishesM(props) {
                 {post.place == "fridge" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p className={isChecked(post.name)}>{post.name}</p>
+                      <p key={post.name} className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={post.id} onChange={handleCheck} />
+                        <input key={post.id} type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -131,9 +133,9 @@ export default function ListMakerDishesM(props) {
                 {post.place == "freezer" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p className={isChecked(post.name)}>{post.name}</p>
+                      <p key={post.name} className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={post.id} onChange={handleCheck} />
+                        <input key={post.id} type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -152,9 +154,9 @@ export default function ListMakerDishesM(props) {
                 {post.place == "frishfridge" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p className={isChecked(post.name)}>{post.name}</p>
+                      <p key={post.name} className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={post.id} onChange={handleCheck} />
+                        <input key={post.id} type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
@@ -172,9 +174,9 @@ export default function ListMakerDishesM(props) {
                 {post.place == "basement" ? (
                   <div className="lis" key={post.id}>
                     <section className="listitem">
-                      <p className={isChecked(post.name)}>{post.name}</p>
+                      <p key={post.name} className={isChecked(post.name)}>{post.name}</p>
                       <label className="container">
-                        <input type="checkbox" value={post.id} onChange={handleCheck} />
+                        <input key={post.id} type="checkbox" value={post.id} onChange={handleCheck} />
                         <span className="checkmark"></span>
                       </label>
                     </section>
