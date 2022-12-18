@@ -88,7 +88,7 @@ function getCurrentDate(separator='/'){
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
         <h1 className="exporttitle">Order list</h1>
-        <p className="exporttitle">{getCurrentDate()}</p>
+        <p className="dates">{getCurrentDate()}</p>
           {isPosts ? (
             <div className='exportdoc' ref={ref}>
               {posts.map((post, index) => (

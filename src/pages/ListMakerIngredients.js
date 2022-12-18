@@ -147,6 +147,7 @@ export default function ListMakerIngredients(props) {
         {isPosts ? (
           <div className='exportdoc' ref={ref}>
              <h1 className="exporttitle">Prep list</h1>
+             <p className="dates">{getCurrentDate()}</p>
             {posts.map((post, index) => (
               <div className="exportlistitemlist" key={index} >
                 <p className='exportlistitem'>{props.dishes}</p>

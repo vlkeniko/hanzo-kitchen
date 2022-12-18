@@ -455,11 +455,9 @@ body {
 }
 
 .exportform {
-  text-align: left;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+
   padding-top: 30px;
+ text-align: center;
 }
 
 .exportformlabel {
@@ -469,23 +467,29 @@ body {
   flex-direction: column;
   margin-bottom: 5px;
   color: var(--red);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  margin-left: 30px;
 
 }
 
 .exportformcommentfield {
   height: 100px;
-  width: 300px;
+  width: 75%;
   margin-bottom: 10px;
   font-size: 15px;
   font-family: 'Lato', sans-serif;
   border: 2px solid var(--orange);
   border-radius: 15px;
   padding: 8px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .exportformnamefield {
   height: 20px;
-  width: 300px;
+  width: 75%;
   margin-bottom: 10px;
   font-size: 15px;
   border: 2px solid var(--red);
@@ -502,6 +506,9 @@ body {
   font-weight: bold;
   font-size: 15px;
   padding: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .exportformsubmit:active {
@@ -518,8 +525,8 @@ body {
   font-weight: bold;
   font-size: 15px;
   padding: 5px;
-  width: 100px;
-  height: 50px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -530,11 +537,17 @@ body {
 
 .submitbuttons {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   gap: 10px;
   cursor: pointer;
 }
 
+.dates{
+  color: var(--blue);
+  text-align: center;
+  padding-top: 10px;
+  font-size: 12px;
+}
 
 /*Changing the checkbox ticks to pluses*/
 
