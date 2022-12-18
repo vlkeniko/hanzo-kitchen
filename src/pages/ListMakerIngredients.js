@@ -146,7 +146,7 @@ export default function ListMakerIngredients(props) {
        
         {isPosts ? (
           <div className='exportdoc' ref={ref}>
-             <h1>Prep list</h1>
+             <h1 className="exporttitle">Prep list</h1>
             {posts.map((post, index) => (
               <div className="exportlistitemlist" key={index} >
                 <p className='exportlistitem'>{props.dishes}</p>

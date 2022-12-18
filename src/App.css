@@ -191,11 +191,13 @@ body {
   height: auto;
   border: 0;
   margin-top: -10px;
+  cursor: pointer;
 
 }
 
 .backbutton {
   margin-left: 20px;
+  cursor: pointer;
 }
 
 /*Big Plus ? button*/
@@ -213,11 +215,13 @@ body {
   right: 20px;
   width: 80px;
   height: auto;
+  cursor: pointer;
 }
 
 .submitbutton {
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 /* Hot n cold */
@@ -402,6 +406,14 @@ body {
 
 /*Overview page*/
 
+.exporttitle{
+  font-size: 25px;
+  color: var(--blue);
+  font-weight: bold;
+  padding-top: 30px;
+  text-align: center;
+}
+
 .exportdoc {
   background-color: var(--white);
   padding: 5px;
@@ -508,6 +520,7 @@ body {
   padding: 5px;
   width: 100px;
   height: 50px;
+  cursor: pointer;
 }
 
 .sendconvertbutton:active {
@@ -519,6 +532,7 @@ body {
   display: flex;
   justify-content: right;
   gap: 10px;
+  cursor: pointer;
 }
 
 
@@ -535,6 +549,7 @@ input[type="checkbox"] {
   padding: 2px;
   background-size: contain;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
@@ -544,18 +559,19 @@ input[type="checkbox"]:checked {
   height: 40px;
   background: none;
   border: 2px solid var(--red);
-  background-image: url("./pictures/plus.svg");
+  background-image: url("./pictures/minus.svg");
   background-color: var(--red);
   padding: 2px;
   background-size: contain;
   border-radius: 30px;
+  cursor: pointer;
 
 }
 
 input[type="checkbox"]:checked:after {
   background: none;
   border: 2px solid var(--orange);
-
+  cursor: pointer;
 }
 
 

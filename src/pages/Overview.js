@@ -87,7 +87,8 @@ function getCurrentDate(separator='/'){
       
       <div className='exportdoc' >
         <form className="page" onSubmit={handleSubmit}>
-          <h1 className='title'>Ingredients</h1>
+        <h1 className="exporttitle">Order list</h1>
+        <p className="exporttitle">{getCurrentDate()}</p>
           {isPosts ? (
             <div className='exportdoc' ref={ref}>
               {posts.map((post, index) => (
@@ -106,6 +107,7 @@ function getCurrentDate(separator='/'){
                     {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Save PDF</button>}
                   </Pdf>
                   <button className='exportformsubmit'>Save list</button>
+                  <br/>
                 </div>
               </div>
             </div>
