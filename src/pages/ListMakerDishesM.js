@@ -3,21 +3,19 @@ import Back from '../pictures/back.svg'
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import BigPlus from '../pictures/arrow.svg'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Pdf from "react-to-pdf";
+import ListMakerIngredients from './ListMakerIngredients';
 
-export default function ListMakerDishesM() {
+export default function ListMakerDishesM(props) {
 
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true); // isPosts can be true or false
   const [checked, setChecked] = useState([]);
-  const location = useLocation();
+
   const navigate = useNavigate();
-  const [username, setName] = useState("");
-  const [usermessage, setMessage] = useState("");
-  const ref = React.createRef();
+
 
   const showToastAdd = () => {
     toast.success('Dish was added to the preplist!', {
@@ -30,16 +28,6 @@ export default function ListMakerDishesM() {
       position: toast.POSITION.TOP_RIGHT
     });
   }
-
-  function getCurrentDate(separator='/'){
-
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-    
-    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-    }
 
   // Add/Remove checked item from list
   const handleCheck = (event) => {
@@ -59,12 +47,7 @@ export default function ListMakerDishesM() {
     setChecked(updatedList);
   }
 
-  // Generate string of checked items
-  const checkedPosts = checked.length
-    ? checked.reduce((total, post) => {
-      return total + ", " + JSON.parse(post).name;
-    })
-    : "";
+
 
   // Return classes based on whether item is checked
   var isChecked = (post) =>
@@ -75,32 +58,13 @@ export default function ListMakerDishesM() {
     navigate('/ingredients', {
       state: {
         dishlist: checked
+      },
+      params: {
+        dishes: [...checked]
       }
 
     })
-
-
- e.preventDefault();
-    const formData = {
-      dishlist: JSON.stringify(location.state.dishlist, 2)
-    }
-    const url = "https://hanzocold-7b5b1-default-rtdb.europe-west1.firebasedatabase.app/SavedPrep.json";
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(formData, 2),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      
-    });
-
-    const data = await response.json();
-    console.log(data);
-
-
   }
-
 
   useEffect(() => {
     async function getPosts() {
@@ -232,33 +196,6 @@ export default function ListMakerDishesM() {
         )}
         <button className="submitbutton" ><img src={BigPlus} alt="BigPlus" className="bigplusimage" /></button>
       </form>
-
-      <form className="page" onSubmit={handleSubmit}>
-          <h1 className='title'>Ingredients</h1>
-          {isPosts ? (
-            <div className='exportdoc' ref={ref}>
-             <p className='listitem'> Items checked are: {checkedPosts} </p>
-              <div className='exportform'>
-                <label className='exportformlabel'>Comment</label>
-                <textarea placeholder="Write message" onChange={e => setMessage(e.target.value)} className='exportformcommentfield'></textarea>
-                <label className='exportformlabel'>Name</label>
-                <input type="text" placeholder="type in your name" onChange={e => setName(e.target.value)} className='exportformnamefield' required></input>
-                <div className='submitbuttons'>
-                  {/*Save  lists with todays date*/}
-                  <Pdf targetRef={ref} filename={getCurrentDate()}>
-                    {({ toPdf }) => <button className="sendconvertbutton" onClick={toPdf}>Save PDF</button>}
-                  </Pdf>
-                  <button className='exportformsubmit'>Save list</button>
-                </div>
-              </div>
-            </div>
-
-          ) : (
-            <p className='exportlistitem'>Nothing to show</p>
-
-          )}
-
-        </form>
     </>
 
   );

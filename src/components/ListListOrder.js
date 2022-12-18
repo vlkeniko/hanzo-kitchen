@@ -4,8 +4,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 
-import Delete from './Delete';
-
 export default function ListListOrder() {
 
   const [posts, setPosts] = useState([]);
@@ -48,18 +46,18 @@ export default function ListListOrder() {
         {posts.map((post, index) => (
           <>
             <div className='accordion'>
-              <Accordion style={{zIndex: "-5"}}>
+              <Accordion style={{ zIndex: "0" }}>
                 <AccordionSummary
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p className="date">{post.date}</p>
-                  <p className="name"> - {post.name}</p><br />
-                  <Delete data={post}/>
+                  <p className="date" key="date">{post.date}</p>
+                  <p className="name" key="name"> - {post.name}</p><br />
+                  {/* <Delete data={post}/> */}
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment">{post.message}</p><br />
-                  <p className="postlist"> {post.ingredientslist.map((ingredientslist) => <li className="postlistitem">{ingredientslist}</li>)}</p>
+                  <p className="comment" key="message" >{post.message}</p><br />
+                  <p className="postlist" > {post.ingredientslist.map((ingredientslist) => <li className="postlistitem" key="ingredientslist">{ingredientslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>
             </div>

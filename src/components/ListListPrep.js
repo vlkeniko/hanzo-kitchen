@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Back from "../pictures/back.svg"
 
-
-export default function ListListOrder() {
+export default function ListListPrep() {
 
   const [posts, setPosts] = useState([]);
   const [setIsPosts] = useState(true); // isP
@@ -31,15 +29,7 @@ export default function ListListOrder() {
   }, []);
 
   //To get the current date in the right format
-   function getCurrentDate(separator='/'){
   
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-    
-    return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-    } 
 
   return (
     <div>
@@ -53,12 +43,12 @@ export default function ListListOrder() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p className="date">{post.date}</p>
-                  <p className="name"> - {post.name}</p><br />
+                  <p className="date" key="date">{post.date}</p>
+                  <p className="name"key="name"> - {post.name}</p><br />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment">{post.message}</p><br />
-                  <p className="postlist"> {post.disheslist.map((disheslist) => <li className="postlistitem">{disheslist}</li>)}</p>
+                  <p className="comment" key="message">{post.message}</p><br />
+                  <p className="postlist"> {post.disheslist.map((disheslist) => <li className="postlistitem" >{disheslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>
             </div>
