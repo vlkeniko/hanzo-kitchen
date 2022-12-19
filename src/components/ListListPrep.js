@@ -44,12 +44,12 @@ export default function ListListPrep() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p className="date" key="post.date">{post.date}</p>
-                  <p className="name"key="post.name"> - {post.name}</p><br />
+                  <p className="date">{post.date}</p>
+                  <p className="name"> - {post.name}</p><br />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment" key="post.message">{post.message}</p><br />
-                  <p className="postlist"> {post.disheslist.map((disheslist) => <li className="postlistitem"  key="post.disheslist" >{disheslist}</li>)}</p>
+                  <p className="comment" >{post.message}</p><br />
+                  <p className="postlist"> {post.disheslist.map((disheslist) => <li className="postlistitem" >{disheslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>
             </div>

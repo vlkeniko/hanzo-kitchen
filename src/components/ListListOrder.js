@@ -40,13 +40,13 @@ export default function ListListOrder() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <p className="date" key="post.date">{post.date}</p>
-                  <p className="name" key="post.name"> - {post.name}</p><br />
+                  <p className="date" >{post.date}</p>
+                  <p className="name" > - {post.name}</p><br />
                   {/* <Delete data={post}/> */}
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p className="comment" key="post.message" >{post.message}</p><br />
-                  <p className="postlist" > {post.ingredientslist.map((ingredientslist) => <li className="postlistitem" key="post.ingredientslist">{ingredientslist}</li>)}</p>
+                  <p className="comment"  >{post.message}</p><br />
+                  <p className="postlist" > {post.ingredientslist.map((ingredientslist) => <li className="postlistitem" >{ingredientslist}</li>)}</p>
                 </AccordionDetails>
               </Accordion>
             </div>
